@@ -11,10 +11,9 @@ export default {
 </script>
 
 <style scoped lang="less">
-@blue: #4f8dee;
   .pageF {
     width: 100%;
     height: 100vh;
-    background: #ddd;
+    background: @blue;
   }
 </style>
