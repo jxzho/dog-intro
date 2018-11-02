@@ -31,7 +31,7 @@ export default {
     handleMouseWheel (e) {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
-        if (this.pageList.length == 0) {}
+        if (this.pageList.length == 0) return;
         if (this.index == 0 && e.wheelDelta > 0) return;
         if (this.index == this.pageList.length - 1 && e.wheelDelta < 0) return;
         e.wheelDelta > 0  

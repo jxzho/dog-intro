@@ -1,29 +1,6 @@
-# xio_web
+## 钟俊雄的网站
 
-## Project setup
-```
-npm install
-```
+向大家介绍一哈自己~
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+> Wechat: junxio96
+> Tel: 13049896626
