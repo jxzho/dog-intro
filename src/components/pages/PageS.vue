@@ -1,6 +1,6 @@
 <template>
-  <div class="pageS">
-    123
+  <div class="skill">
+    2
   </div>
 </template>
 
@@ -11,9 +11,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .pageS {
-    width: 100%;
-    height: 100vh;
-    background: #bbb;
+  .skill {
+    background: #ccc;
   }  
 </style>

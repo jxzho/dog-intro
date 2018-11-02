@@ -1,6 +1,6 @@
 <template>
-  <div class="pageF">
-    123
+  <div class="intro">
+    1
   </div>
 </template>
 
@@ -11,9 +11,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .pageF {
-    width: 100%;
-    height: 100vh;
-    background: @blue;
+  .intro {
+    background: @grey;
   }
 </style>

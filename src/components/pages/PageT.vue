@@ -1,6 +1,6 @@
 <template>
-  <div class="pageT">
-    123
+  <div class="project">
+    3
   </div>
 </template>
 
@@ -11,9 +11,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .pageT {
-    width: 100%;
-    height: 100vh;
-    background: #aaa; 
+  .project {
+    background: #aaa;
   }
 </style>
