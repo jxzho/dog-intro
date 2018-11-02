@@ -1,6 +1,5 @@
 <template>
   <div class="progress-bar">
-    
   </div>
 </template>
 
@@ -14,9 +13,9 @@ export default {
 <style scoped lang="less">
   .progress-bar {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 5px;
+    right: 0;
+    top: 0;
+    height: 2px;
     background: @blue;
     transition: all 1s ease;
   }

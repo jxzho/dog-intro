@@ -37,7 +37,7 @@ export default {
         e.wheelDelta > 0  
           ? this.runUpward(this.index) 
           : this.runDownward(this.index);
-      }, 100);
+      }, 200);
     },
     runUpward (index) {
       const curIndex = index,
@@ -107,7 +107,7 @@ export default {
       top: 0;
       width: 100%;
       height: 100%;
-      transition: all .5s ease;
+      transition: all 1s ease;
     }
     .prePage {
       transform: translateY(-100%);
