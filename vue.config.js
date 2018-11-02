@@ -3,7 +3,7 @@ function resolve (dir) {
     return path.join(__dirname, dir)
 }
 module.exports = {
-    lintOnSave: true,
+    lintOnSave: false,
 
     chainWebpack: (config)=>{
         config.resolve.alias
@@ -17,6 +17,7 @@ module.exports = {
         preProcessor: 'less',
         patterns: [
             path.resolve(__dirname, './src/assets/styles/theme.less'),
+            path.resolve(__dirname, './src/assets/styles/mixins.less'),
         ]
       }
     }
