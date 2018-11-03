@@ -41,7 +41,7 @@ export default {
 .v-enter,
 .v-leave-to {
   opacity: 0;
-  transform: translateX(-40%);
+  transform: translateX(-30%);
 }
 
 .v-enter-active,
@@ -57,17 +57,17 @@ export default {
   align-items: center;
 
   .avatar-wrapper {
-    margin-top: -120px;
     position: relative;
 
     .avatar {
+      margin-top: -20px;
       width: @avatarWidth;
       height: @avatarWidth;
       background: #fff;
       border: 4px solid #fff;
       border-radius: unit(@avatarWidth/2, px);
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 
       img {
         width: 100%;

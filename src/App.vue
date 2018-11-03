@@ -116,7 +116,7 @@ export default {
       top: 0;
       width: 100%;
       height: 100%;
-      transition: all 1s ease;
+      transition: all .6s ease;
     }
     .prePage {
       transform: translateY(-100%);
