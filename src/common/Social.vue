@@ -304,7 +304,7 @@ export default {
   .brief {
     background: #5c4ca8;
     text-align: center;
-    height: 64px;
+    height: 54px;
     color: @grey;
     letter-spacing: 1px;
     position: relative;

@@ -4,7 +4,7 @@
     <page-f :class="['page']" @transitionend.native="handleIfTran"></page-f>
     <page-s :class="['page']" @transitionend.native="handleIfTran"></page-s>
     <page-t :class="['page']" @transitionend.native="handleIfTran"></page-t>
-    <progress-bar :style="pgsStyle"></progress-bar>
+    <progress-bar></progress-bar>
   </div>
 </template>
 
@@ -84,11 +84,6 @@ export default {
     }
   },
   computed: {
-    pgsStyle () {
-      return {
-        width: `${ (this.index + 1) / this.pageList.length * 100 }%`
-      }
-    }
   },
   watch: {
   },

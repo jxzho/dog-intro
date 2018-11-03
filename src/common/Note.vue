@@ -1,5 +1,5 @@
 <template>
-  <div class="note-panel">
+  <div class="note-panel" ref="note-panel">
     <ul class="note-list">
       <li class="note-item">
         <p class="message">今天天气不错</p>
@@ -22,8 +22,25 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 export default {
-  name: "Note"
+  name: "Note",
+  created () {
+    this.$nextTick(() => {
+      if (!this.scroll) {
+        this.scroll = new BScroll(this.$refs['note-panel'], {
+          bounce: {
+            top: false,
+            bottom: false
+          }
+        });
+      } else {
+        this.scroll.refresh();
+      }
+    });
+  },
+  mounted () {
+  }
 }
 </script>
 
@@ -31,6 +48,9 @@ export default {
 .note-panel {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  overflow: hidden;
+  height: 122px;
+  position: relative;
   .note-list {
     .note-item {
       display: flex;

@@ -7,19 +7,19 @@
         <transition>
           <div class="dialogue" v-show="dialogueShow">hello~</div>
         </transition>
-      </div>
-      <h1 class="name">钟俊雄</h1>
-      <social></social>
-      <footer class="footer">
-        <a href="https://github.com/junxio220/xio_site" target="_blank">
+    </div>
+    <h1 class="name">钟俊雄</h1>
+    <social></social>
+    <footer class="footer">
+      <a href="https://github.com/junxio220/xio_site" target="_blank">
         <span class="source">Source</span>
       </a>
-        <em>&#124;</em>
-        <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">
+      <em>&#124;</em>
+      <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">
         <p class="records">粤&nbsp;ICP&nbsp;备案18133198</p>
       </a>
-      </footer>
-    </div>
+    </footer>
+  </div>
 </template>
 <script>
 import Social from '@/common/Social.vue';
@@ -60,7 +60,7 @@ export default {
     position: relative;
 
     .avatar {
-      margin-top: -20px;
+      margin-top: -70px;
       width: @avatarWidth;
       height: @avatarWidth;
       background: #fff;
@@ -77,7 +77,7 @@ export default {
     .dialogue {
       position: absolute;
       left: 100%;
-      top: 0;
+      top: -40px;
       color: #fff;
       font-weight: 100;
       padding: 10px 20px;

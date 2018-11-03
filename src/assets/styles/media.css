@@ -1,0 +1,27 @@
+@media (max-width: 450px) {
+  .intro .brief {
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+  }
+  .intro .icons-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .intro .nav-bar {
+    display: none;
+  }
+  .intro .switch-btn {
+    display: none !important;
+  }
+  .intro .trigon {
+    display: none !important;
+  }
+  .intro .footer {
+    display: none !important;
+  }
+  .intro .note-panel {
+    height: auto;
+  }
+}
