@@ -1,9 +1,9 @@
 <template>
   <div class="container" 
        ref="container">
-    <page-f :class="['page']"></page-f>
-    <page-s :class="['page']"></page-s>
-    <page-t :class="['page']"></page-t>
+    <page-f :class="['page']" @transitionend.native="handleIfTran"></page-f>
+    <page-s :class="['page']" @transitionend.native="handleIfTran"></page-s>
+    <page-t :class="['page']" @transitionend.native="handleIfTran"></page-t>
     <progress-bar :style="pgsStyle"></progress-bar>
   </div>
 </template>
@@ -20,7 +20,8 @@ export default {
     return {
       timer: null,
       index: 0,
-      pageList: []
+      pageList: [],
+      transitionEnd: true
     }
   },
   components: {
@@ -28,16 +29,24 @@ export default {
     ProgressBar
   },
   methods: {
+    handleIfTran () {
+      this.transitionEnd = true;
+      clearTimeout(this.timer);
+      this.timer = null;
+    },
     handleMouseWheel (e) {
       clearTimeout(this.timer);
+      this.timer = null;
+      if (!this.transitionEnd) return;
+      if (this.pageList.length == 0) return;
+      if (this.index == 0 && e.wheelDelta > 0) return;
+      if (this.index == this.pageList.length - 1 && e.wheelDelta < 0) return;
       this.timer = setTimeout(() => {
-        if (this.pageList.length == 0) return;
-        if (this.index == 0 && e.wheelDelta > 0) return;
-        if (this.index == this.pageList.length - 1 && e.wheelDelta < 0) return;
+        this.transitionEnd = false
         e.wheelDelta > 0  
           ? this.runUpward(this.index) 
           : this.runDownward(this.index);
-      }, 200);
+      }, 100);
     },
     runUpward (index) {
       const curIndex = index,

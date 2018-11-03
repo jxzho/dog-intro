@@ -65,7 +65,7 @@ h5,
 h6 {
   font-size: 100%;
   font-weight: normal;
-  font-family: "Microsoft YaHei";
+  font-family: Oxygen, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 abbr,
 acronym {
@@ -88,7 +88,8 @@ select {
 body {
   background: #fff;
   color: #5e5e5e;
-  font: 14px Open Sans,Microsoft Yahei,sans-serif;
+  font-size: 14px;
+  font-family: Oxygen, "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 14px;
 }
 ol,
