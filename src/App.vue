@@ -56,6 +56,7 @@ export default {
       this.pageList[preIndex].classList.remove('prePage');
       this.pageList[preIndex].classList.add('curPage');
       this.index--;
+      this.$store.commit('changeIndex', this.index);
     },
     runDownward (index) {
       const curIndex = index,
@@ -65,6 +66,7 @@ export default {
       this.pageList[nextIndex].classList.remove('nextPage');
       this.pageList[nextIndex].classList.add('curPage');
       this.index++;
+      this.$store.commit('changeIndex', this.index);
     },
     initPos (defIndex) {
       this.$nextTick(() => {
