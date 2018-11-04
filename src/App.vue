@@ -1,9 +1,9 @@
 <template>
   <div class="container" 
        ref="container">
-    <page-f :class="['page']" @transitionend.native="handleIfTran"></page-f>
-    <page-s :class="['page']" @transitionend.native="handleIfTran"></page-s>
-    <page-t :class="['page']" @transitionend.native="handleIfTran"></page-t>
+    <page-f :class="['page', 'curPage']" @transitionend.native="handleIfTran"></page-f>
+    <page-s :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></page-s>
+    <page-t :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></page-t>
     <progress-bar></progress-bar>
   </div>
 </template>

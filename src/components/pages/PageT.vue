@@ -1,5 +1,5 @@
 <template>
-  <div class="project">
+  <div class="skill">
     3
   </div>
 </template>

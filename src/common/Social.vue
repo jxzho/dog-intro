@@ -95,7 +95,7 @@ export default {
     },
     handleMosEnter (e) {
       const pos = $(e.target).position();
-      $('.nav-bar').css('left', pos.left - 5);
+      $('.nav-bar').css('transform', `translateX(${ pos.left - 5 }px)`);
     }
   },
   components: {

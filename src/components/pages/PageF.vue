@@ -1,5 +1,5 @@
 <template>
-  <div class="intro">
+  <div class="home">
     <div class="avatar-wrapper">
       <div class="avatar" @mouseenter="dialogueShow = true" @mouseleave="dialogueShow = false">
         <img src="https://cdn.junxio.site/static/pepsi.png">
@@ -14,7 +14,7 @@
       <a href="https://github.com/junxio220/xio_site" target="_blank">
         <span class="source">Source</span>
       </a>
-      <em>&#124;</em>
+      <em class="separator">&#124;</em>
       <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">
         <p class="records">粤&nbsp;ICP&nbsp;备案18133198</p>
       </a>
@@ -37,11 +37,11 @@ export default {
 </script>
 <style scoped lang="less">
 @avatarWidth: 120px;
-
+@footerColor: rgba(0, 0, 0, .4);
 .v-enter,
 .v-leave-to {
   opacity: 0;
-  transform: translateX(-30%);
+  transform: translateX(-50px);
 }
 
 .v-enter-active,
@@ -49,7 +49,7 @@ export default {
   transition: all .6s;
 }
 
-.intro {
+.home {
   background: @grey;
   display: flex;
   flex-direction: column;
@@ -76,8 +76,8 @@ export default {
 
     .dialogue {
       position: absolute;
-      left: 100%;
-      top: -40px;
+      right: -80px;
+      top: -50px;
       color: #fff;
       font-weight: 100;
       padding: 10px 20px;
@@ -100,11 +100,18 @@ export default {
     position: absolute;
     bottom: 20px;
     display: flex;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.4);
-
-    em {
+    font-size: 11px;
+    color: rgba(0, 0, 0, .3);
+    
+    .source{
+      color: @footerColor;
+    }
+    .separator {
       margin: 0 10px;
+      color: @footerColor;
+    }
+    .records {
+      color: @footerColor;
     }
   }
 }
