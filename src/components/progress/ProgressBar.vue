@@ -8,7 +8,7 @@
     </div>
     <div class="nav-item">
       <span :class="['dot',{ actived: curIndex == 1 }]">
-        <img src="https://cdn.junxio.site/static/skill.svg">
+        <img src="https://cdn.junxio.site/static/introduce.svg">
       </span>
       <div class="hint">介绍</div>
     </div>
