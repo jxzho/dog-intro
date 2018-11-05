@@ -1,12 +1,13 @@
 <template>
   <div class="skill">
     <title-cp title="技能"></title-cp>
-    
+    <dial class="dial"></dial>
   </div>
 </template>
 
 <script>
 import TitleCp from 'common/Title.vue';
+import Dial from 'common/Dial.vue';
 export default {
   data () {
     return {
@@ -15,7 +16,7 @@ export default {
   },
   name: 'PageT',
   components: {
-    TitleCp
+    TitleCp, Dial
   }
 }
 </script>
@@ -28,6 +29,6 @@ export default {
     align-items: center;
     padding: 40px;
     box-sizing: border-box;
-    background: -webkit-linear-gradient(top, #fff3b2, #ffb6af);
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   }
 </style>
