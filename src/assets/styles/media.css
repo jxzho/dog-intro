@@ -1,3 +1,25 @@
+@media (max-width: 1000px) {
+  .intro .brief {
+    width: 400px !important;
+  }
+  .intro .person-info {
+    width: 400px !important;
+  } 
+  .intro .person-info .person-info-item {
+    width: 400px !important;
+    margin: 16px 0 !important;
+  } 
+}
+
+@media (max-width: 750px) {
+  .skill .switch {
+    display: none
+  }
+  .skill .dial {
+    display: none;
+  }
+}
+
 @media (max-width: 450px) {
   .home .brief {
     border-top-left-radius: 4px !important;
@@ -29,19 +51,6 @@
   }
 }
 
-@media (max-width: 750px) {
-  .intro .brief {
-    width: 400px !important;
-  }
-  .intro .person-info {
-    width: 400px !important;
-  } 
-  .intro .person-info .person-info-item {
-    width: 400px !important;
-    margin: 16px 0 !important;
-  } 
-}
-
 /* iphone6p 7p 8p */
 @media (max-width: 420px) {
   .intro .title {
@@ -64,17 +73,17 @@
 /* iphone6 7 8 X */
 @media (max-width: 380px) {
   .intro .person-info .person-info-item {
-    margin: 20px 0 !important;
+    margin: 16px 0l !important;
   } 
 }
 
 /* iphone5 */
 @media (max-width: 330px) {
   .intro .person-info .person-info-item {
-    margin: 10px 0 !important;
+    margin: 8px 0 !important;
     position: relative;
   } 
-  .person-info-item:not(:last-child) :after {
+  .intro .person-info-item:not(:last-child) :after {
     content: '';
     display: block;
     position: absolute;

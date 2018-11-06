@@ -8,7 +8,9 @@
       </template>
     </div>
     <div class="planet"">
-      <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" @click="handleRotate(index, $event)">{{item}}</span>
+      <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" @click="handleRotate(index)">
+        {{item}}
+      </span>
     </div>
   </div>
 </template>
@@ -18,14 +20,14 @@ export default {
   data() {
     return {
       planets: ['JavaScipt', 'HTML', 'CSS', 'Vue', 'jQuery', 'PS', 'Node', 'less'],
-      curIndex: 0,
+      curIndex: 7,
       lastIndex: 0,
       timer: null
     }
   },
   name: 'Dial',
   methods: {
-    handleRotate(index, e) {
+    handleRotate(index) {
       this.curIndex = index;
       $('.planet').css('transform', `rotate(${ (index - 6) * 45 }deg)`);
       $('.planet').children('.item').css('transform', `rotate(${ -(index - 6) * 45 }deg)`);
@@ -35,15 +37,24 @@ export default {
       this.lastIndex = index;
     },
     dialAutoPlay(intervalTime) {
-      clearInterval(this.timer);
       this.timer = setInterval(() => {
-        this.curIndex = this.curIndex++ > 7 ? 0 : this.curIndex;
         this.handleRotate(this.curIndex);
+        this.curIndex = this.curIndex + 1 > 7 ? 0 : this.curIndex + 1 ;
       }, intervalTime);
     }
   },
   mounted() {
-    /*this.dialAutoPlay(3000);*/
+    // this.dialAutoPlay(3000);
+  },
+  created () {
+    // 监听switch action
+    this.$eventBus.$on('onPlay', () => {
+      this.dialAutoPlay(3000);
+    });
+    this.$eventBus.$on('offPlay', () => {
+      clearInterval(this.timer);
+      this.timer = null;
+    });
   }
 }
 </script>
@@ -64,14 +75,16 @@ export default {
 }
 
 .dial {
-  margin-top: 20px;
   width: 500px;
   height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -250px;
   .center {
     width: 200px;
     height: 200px;
@@ -98,6 +111,8 @@ export default {
     width: 100%;
     height: 100%;
     position: absolute;
+    left: 0;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +128,6 @@ export default {
       width: 100px;
       height: 30px;
       border-radius: 4px;
-      background: @grey;
       transition: all .6s ease;
       position: absolute;
       box-sizing: border-box;
@@ -122,7 +136,6 @@ export default {
       text-align: center;
       color: rgba(0, 0, 0, .7);
       font-size: 16px;
-      font-weight: 800;
       line-height: 30px;
       user-select: none;
       background: #fff;

@@ -50,7 +50,7 @@ export default {
 
 <style scoped lang="less">
 @blue:#2c9ab7;
-@panelWidth: 800px;
+@panelWidth: 1000px;
 @fontSize: 13px;
 .intro {
   background: #faca51;
@@ -68,7 +68,6 @@ export default {
     background: #fff;
     border-radius: 4px;
     font-size: @fontSize;
-    font-weight: 700;
     color: rgba(0, 0, 0, .7);
     box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
   }
@@ -78,7 +77,6 @@ export default {
     background: #fff;
     border-radius: 4px;
     font-size: @fontSize;
-    font-weight: 600;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

@@ -8,6 +8,7 @@ import 'assets/styles/media.css';
 import 'assets/js/symbol.js';
 
 Vue.config.productionTip = false;
+Vue.prototype.$eventBus = new Vue(); 
 
 new Vue({
   store,
