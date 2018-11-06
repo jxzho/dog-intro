@@ -48,8 +48,9 @@ export default {
 }
 </script>
 <style scoped lang="less">
-@Len: unit(250 - 42, px);
-@Lenc: unit(208 - 208 / pow(2, 1/2), px);
+@Len: unit(250 - 15, px);
+@Lenx: unit(125 - 50, px);
+@Leny: unit(125 - 15, px);
 
 .v-enter,
 .v-leave-to {
@@ -72,9 +73,10 @@ export default {
   position: relative;
 
   .center {
-    width: 250px;
-    height: 250px;
-    background: url(https://cdn.junxio.site/static/earth.svg) 100% no-repeat;
+    width: 200px;
+    height: 200px;
+    background: url(https://cdn.junxio.site/static/skill/earth.svg) no-repeat;
+    background-size: 200px 200px;
     border-radius: 125px;
     position: relative;
     box-shadow: 0px 0px 69px 1px #2b152e;
@@ -90,54 +92,6 @@ export default {
       top: 0;
     }
 
-    .item1 {
-      background: rgba(78, 84, 200, .5);
-    }
-
-    .item2 {
-      background: rgba(247, 121, 125, .5);
-    }
-
-    .item3 {
-      background: rgba(245,175,25, .5);
-    }
-
-    .item4 {
-      background: rgba(146,141,171, .5);
-    }
-
-    .item5 {
-      background: rgba(253,252,71, .5);
-    }
-
-    .item6 {
-      background: rgba(218,34,255, .5);
-    }
-
-    .item7 {
-      background: rgba(7,101,133, .5);
-    }
-
-    .item8 {
-      background: rgba(17,153,142, .5);
-    }
-
-    .item1:after,
-    .item2:after,
-    .item3:after,
-    .item4:after,
-    .item5:after,
-    .item6:after,
-    .item7:after,
-    .item8:after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: -1px;
-      top: 0;
-      border-right: 125px solid rgba(0, 0, 0, 0.4);
-      height: 100%;
-    }
   }
 
   .planet {
@@ -156,9 +110,9 @@ export default {
 
     .item {
       display: block;
-      width: 84px;
-      height: 84px;
-      border-radius: 42px;
+      width: 100px;
+      height: 30px;
+      border-radius: 4px;
       background: @grey;
       transition: all .6s ease;
       position: absolute;
@@ -166,62 +120,63 @@ export default {
       box-shadow: 2px 2px 10px rgba(0, 0, 0, .4);
       cursor: pointer;
       text-align: center;
-      color: #fff;
+      color: rgba(0, 0, 0, .7);
       font-size: 16px;
       font-weight: 800;
-      line-height: 84px;
+      line-height: 30px;
       user-select: none;
+      background: #fff;
       &:hover {
         box-shadow: 0 0px 20px #fff;
       }
     }
 
     .item1 {
-      left: Len;
-      top: 0;
-      background: linear-gradient(to left, #4e54c8, #8f94fb);
+      left: 200px;
+      top: 30px;
+      // background: #4e54c8;
     }
 
     .item2 {
-      left: @Lenc;
-      top: @Lenc;
-      background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+      left: @Lenx;
+      top: @Leny;
+      // background: #f7797d;
     }
 
     .item3 {
       left: 0;
       top: @Len;
-      background: linear-gradient(to right, #f12711, #f5af19);
+      // background: #f5af19;
     }
 
     .item4 {
-      left: @Lenc;
-      bottom: @Lenc;
-      background: linear-gradient(to left, #00d2ff, #928dab);
+      left: @Lenx;
+      bottom: @Leny;
+      // background: #928dab;
     }
 
     .item5 {
-      left: Len;
-      bottom: 0;
-      background: linear-gradient(to left, #fdfc47, #24fe41);
+      left: 200px;
+      bottom: 30px;
+      // background: #fdfc47;
     }
 
     .item6 {
-      right: @Lenc;
-      bottom: @Lenc;
-      background: linear-gradient(to left, #da22ff, #9733ee);
+      right: @Lenx;
+      bottom: @Leny;
+      // background: #da22ff;
     }
 
     .item7 {
       top: @Len;
       right: 0;
-      background: linear-gradient(to left, #076585, #fff);
+      // background: #076585;
     }
 
     .item8 {
-      right: @Lenc;
-      top: @Lenc;
-      background: linear-gradient(to left, #11998e, #38ef7d);
+      right: @Lenx;
+      top: @Leny;
+      // background: #11998e;
     }
   }
 }
