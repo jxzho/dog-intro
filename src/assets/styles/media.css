@@ -1,11 +1,12 @@
 @media (max-width: 1000px) {
-  .intro .brief {
+  .intro .brief, .skill .skill-panel {
     width: 400px !important;
   }
   .intro .person-info {
     width: 400px !important;
   } 
-  .intro .person-info .person-info-item {
+  .intro .person-info .person-info-item,
+  .skill .skill-panel .skill-item{
     width: 400px !important;
     margin: 16px 0 !important;
   } 
@@ -17,6 +18,9 @@
   }
   .skill .dial {
     display: none;
+  }
+  .skill .skill-panel {
+    display: block !important;
   }
 }
 
@@ -53,20 +57,24 @@
 
 /* iphone6p 7p 8p */
 @media (max-width: 420px) {
-  .intro .title {
-    font-size: 30px;
-    line-height: 30px;
+  .title {
+    font-size: 30px !important;
+    line-height: 30px !important;
   }
-  .intro .brief {
+  .intro .brief,
+  .skill .skill-panel {
     width: 300px !important;
     margin-top: 20px !important;
   }
   .intro .person-info {
     width: 300px !important;
   } 
-  .intro .person-info .person-info-item {
+  .skill .skill-panel {
+    margin-top: 30px !important;
+  }
+  .intro .person-info .person-info-item,
+  .skill .skill-panel .skill-item {
     width: 300px !important;
-    margin: 20px 0 !important;
   }
 }
 
@@ -75,11 +83,21 @@
   .intro .person-info .person-info-item {
     margin: 16px 0l !important;
   } 
+  .skill .skill-panel .skill-item {
+    margin: 15px 0 !important;
+  } 
 }
 
 /* iphone5 */
 @media (max-width: 330px) {
-  .intro .person-info .person-info-item {
+  .home .social {
+    width: 300px !important;
+  }
+  .intro .person-info {
+    margin-top: 14px !important;
+  }
+  .intro .person-info .person-info-item,
+  .skill .skill-panel .skill-item {
     margin: 8px 0 !important;
     position: relative;
   } 
@@ -89,7 +107,44 @@
     position: absolute;
     width: 100%;
     border-bottom: 1px solid #ddd;
+    transform: translateY(.5);
     left: 0;
     bottom: -10px;
+  }
+  .skill .skill-panel .skill-item:not(:last-child) :after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    left: 0;
+    bottom: -7px;
+  }
+  .skill .skill-panel {
+    margin-top: 12px !important;
+  } 
+  .skill .skill-panel .skill-item {
+    margin: 8px 0 !important;
+  } 
+}
+
+@media (min-height: 670px) and (max-height: 740px) {
+  .intro .person-info .person-info-item {
+    margin: 20px 0 !important;
+  }
+  .skill .skill-panel .skill-item {
+    margin: 25px 0 !important;
+  } 
+}
+
+@media (min-height: 760px) {
+  .intro .person-info .person-info-item {
+    margin: 25px 0 !important;
+  }
+  .skill .skill-panel {
+    margin-top: 50px !important;
+  }
+  .skill .skill-panel .skill-item {
+    margin: 32px 0 !important;
   }
 }

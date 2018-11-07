@@ -50,8 +50,8 @@ export default {
 
 <style scoped lang="less">
 @blue:#2c9ab7;
-@panelWidth: 1000px;
-@fontSize: 13px;
+@panelWidth: 70%;
+@fontSize: 15px;
 .intro {
   background: #faca51;
   display: flex;
@@ -84,10 +84,8 @@ export default {
     .person-info-item {
       width: 30%;
       box-sizing: border-box;
-      margin: 25px 0;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       .state-icon {
         width: 25px;

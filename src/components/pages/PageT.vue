@@ -4,14 +4,38 @@
     <dial class="dial"></dial>
     <my-switch></my-switch>
     <div class="skill-panel">
-      <div class="skill-item">javaScript</div>
-      <div class="skill-item">css</div>
-      <div class="skill-item">html</div>
-      <div class="skill-item">jquery</div>
-      <div class="skill-item">vue</div>
-      <div class="skill-item">node</div>
-      <div class="skill-item">ps</div>
-      <div class="skill-item">less</div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/bullbasaur.svg">
+        <span>javaScript</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/caterpie.svg">
+        <span>css</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/mankey.svg">
+        <span>html</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/pidgey.svg">
+        <span>jquery</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/pikachu.svg">
+        <span>vue</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/psyduck.svg">
+        <span>node</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/snorlax.svg">
+        <span>ps</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.junxio.site/static/pocket_monster/squirtle.svg">
+        <span>less</span>
+      </div>
     </div>
   </div>
 </template>
@@ -47,14 +71,15 @@ export default {
     border-radius: 4px;
     width: 500px;
     background: #fff;
+    display: none;
     .skill-item {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 20px 0;
+      margin: 28px 0;
       color: rgba(0, 0, 0, .8);
-      font-size: 20px;
-      font-weight: 100;
+      font-size: 16px;
     }
   }
 }

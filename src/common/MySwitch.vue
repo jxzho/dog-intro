@@ -33,18 +33,19 @@ export default {
 
 <style scoped lang="less">
 @switchWidth: 100px;
+@offset: 30px;
 @btnWidth: 40px;
 @distance: unit(@switchWidth - @btnWidth, px);
 .switch {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: @offset;
+  left: @offset;
   width: @switchWidth;
-  border: 3px solid transparent;
+  border: 4px solid transparent;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   background: #eee;
-  border-radius: 50px;
   overflow: hidden;
   transition: 1s cubic-bezier(1, 0.01, 0.21, 0.99) .12s;
   user-select: none;
@@ -73,7 +74,7 @@ export default {
   }
   .switch-btn {
     box-sizing: border-box;
-    border: 2px solid #9c90c2;
+    border: 4px solid #9c90c2;
     width: @btnWidth;
     height: @btnWidth;
     border-radius: unit(@btnWidth/2, px);

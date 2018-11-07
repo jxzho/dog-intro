@@ -36,7 +36,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-@avatarWidth: 120px;
+@avatarWidth: 150px;
 @footerColor: rgba(0, 0, 0, .4);
 .v-enter,
 .v-leave-to {
@@ -60,17 +60,20 @@ export default {
     position: relative;
 
     .avatar {
-      margin-top: -70px;
+      margin-top: -100px;
       width: @avatarWidth;
       height: @avatarWidth;
       background: #fff;
       border: 4px solid #fff;
       border-radius: unit(@avatarWidth/2, px);
       overflow: hidden;
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
+      transition: .2s;
       img {
         width: 100%;
+      }
+      &:hover {
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3); 
       }
     }
 
