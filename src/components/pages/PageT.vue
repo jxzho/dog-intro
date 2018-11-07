@@ -40,7 +40,7 @@ export default {
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  background: #159957;
   position: relative;
   .skill-panel {
     margin-top: 20px;
