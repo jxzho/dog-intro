@@ -81,9 +81,11 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    overflow: hidden;
     .person-info-item {
       width: 30%;
       box-sizing: border-box;
+      margin: 25px 0;
       display: flex;
       flex-direction: column;
       align-items: center;

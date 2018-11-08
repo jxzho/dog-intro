@@ -4,6 +4,7 @@
     <page-f :class="['page', 'curPage']" @transitionend.native="handleIfTran"></page-f>
     <page-s :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></page-s>
     <page-t :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></page-t>
+    <project :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></project>
     <progress-bar></progress-bar>
   </div>
 </template>
@@ -12,6 +13,7 @@
 import PageF from '@/components/pages/PageF.vue';
 import PageS from '@/components/pages/PageS.vue';
 import PageT from '@/components/pages/PageT.vue';
+import Project from '@/components/pages/Project.vue';
 import ProgressBar from '@/components/progress/ProgressBar.vue';
 import Velocity from 'velocity-animate';
 export default {
@@ -25,7 +27,7 @@ export default {
     }
   },
   components: {
-    PageF, PageS, PageT,
+    PageF, PageS, PageT, Project,
     ProgressBar
   },
   methods: {
@@ -84,10 +86,6 @@ export default {
         this.pageList = pageList;
       });
     }
-  },
-  computed: {
-  },
-  watch: {
   },
   mounted () {
     window.addEventListener('mousewheel', this.handleMouseWheel);
