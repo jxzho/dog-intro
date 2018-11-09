@@ -41,7 +41,7 @@ export default {
       title: "自我介绍"
     }
   },
-  name: 'PageS',
+  name: 'Intro',
   components: {
     TitleCp
   }

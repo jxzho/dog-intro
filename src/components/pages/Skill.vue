@@ -50,7 +50,7 @@ export default {
       curIndex: 0
     }
   },
-  name: 'PageT',
+  name: 'Skill',
   components: {
     TitleCp, Dial, mySwitch
   }

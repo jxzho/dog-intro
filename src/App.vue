@@ -1,95 +1,77 @@
 <template>
   <div class="container" 
-       ref="container">
-    <page-f :class="['page', 'curPage']" @transitionend.native="handleIfTran"></page-f>
-    <page-s :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></page-s>
-    <page-t :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></page-t>
-    <project :class="['page', 'nextPage']" @transitionend.native="handleIfTran"></project>
+       ref="container"
+       @mousewheel="handleMouseWheel">
+    <home class="page"
+          :class="{
+            prePage: curIndex > 0,
+            curPage: curIndex === 0,
+            nextPage: curIndex < 0
+          }" 
+          @transitionend.native="handleTranEnd"></home>
+    <intro class="page"
+          :class="{
+            prePage: curIndex > 1,
+            curPage: curIndex === 1,
+            nextPage: curIndex < 1
+          }" 
+           @transitionend.native="handleTranEnd"></intro>
+    <skill class="page"
+           :class="{
+              prePage: curIndex > 2,
+              curPage: curIndex === 2,
+              nextPage: curIndex < 2
+            }"  
+           @transitionend.native="handleTranEnd"></skill>
+    <project class="page"
+            :class="{
+              prePage: curIndex > 3,
+              curPage: curIndex === 3,
+              nextPage: curIndex < 3
+            }" 
+             @transitionend.native="handleTranEnd"></project>
     <progress-bar></progress-bar>
   </div>
 </template>
 
 <script>
-import PageF from '@/components/pages/PageF.vue';
-import PageS from '@/components/pages/PageS.vue';
-import PageT from '@/components/pages/PageT.vue';
+import Home from '@/components/pages/Home.vue';
+import Intro from '@/components/pages/Intro.vue';
+import Skill from '@/components/pages/Skill.vue';
 import Project from '@/components/pages/Project.vue';
 import ProgressBar from '@/components/progress/ProgressBar.vue';
-import Velocity from 'velocity-animate';
 export default {
   name: "app",
   data () {
     return {
       timer: null,
-      index: 0,
+      curIndex: 0,
       pageList: [],
       transitionEnd: true
     }
   },
   components: {
-    PageF, PageS, PageT, Project,
-    ProgressBar
+    Home, Intro, Skill, Project, ProgressBar
   },
   methods: {
-    handleIfTran () {
+    handleTranEnd () {
       this.transitionEnd = true;
       clearTimeout(this.timer);
       this.timer = null;
     },
     handleMouseWheel (e) {
+      // wheelDelta > 0 up or wheelDelta < 0 down
       clearTimeout(this.timer);
       this.timer = null;
+      if ( (e.wheelDelta < 0 && this.curIndex === 3 ) || 
+        (e.wheelDelta > 0) && this.curIndex === 0) return;
       if (!this.transitionEnd) return;
-      if (this.pageList.length == 0) return;
-      if (this.index == 0 && e.wheelDelta > 0) return;
-      if (this.index == this.pageList.length - 1 && e.wheelDelta < 0) return;
       this.timer = setTimeout(() => {
         this.transitionEnd = false
-        e.wheelDelta > 0  
-          ? this.runUpward(this.index) 
-          : this.runDownward(this.index);
+        e.wheelDelta < 0 ? this.curIndex++ : this.curIndex-- ;
+        this.$store.commit('changeIndex', this.curIndex);
       }, 100);
-    },
-    runUpward (index) {
-      const curIndex = index,
-            preIndex = ( --index );
-      this.pageList[curIndex].classList.remove('curPage');
-      this.pageList[curIndex].classList.add('nextPage');
-      this.pageList[preIndex].classList.remove('prePage');
-      this.pageList[preIndex].classList.add('curPage');
-      this.index--;
-      this.$store.commit('changeIndex', this.index);
-    },
-    runDownward (index) {
-      const curIndex = index,
-            nextIndex = ( ++index );
-      this.pageList[curIndex].classList.remove('curPage');
-      this.pageList[curIndex].classList.add('prePage');
-      this.pageList[nextIndex].classList.remove('nextPage');
-      this.pageList[nextIndex].classList.add('curPage');
-      this.index++;
-      this.$store.commit('changeIndex', this.index);
-    },
-    initPos (defIndex) {
-      this.$nextTick(() => {
-        const con = this.$refs['container'];
-        const pageList = Array.from(con.getElementsByClassName('page'));
-        pageList.forEach((item, index) => {
-          if (index < defIndex) {
-            item.classList.add('prePage');
-          } else if (index == defIndex) {
-            item.classList.add('curPage');
-          } else if(index > defIndex) {
-            item.classList.add('nextPage');
-          }
-        });
-        this.pageList = pageList;
-      });
     }
-  },
-  mounted () {
-    window.addEventListener('mousewheel', this.handleMouseWheel);
-    this.initPos(0);
   }
 };
 </script>

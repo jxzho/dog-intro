@@ -2,23 +2,19 @@
   <nav class="progress">
     <div class="nav-wrapper">
       <div class="nav-item">
-        <span :class="['dot']">
-      </span>
+        <span class="dot"></span>
         <div class="hint">主页</div>
       </div>
       <div class="nav-item">
-        <span :class="['dot']">
-      </span>
+        <span :class="['dot']"></span>
         <div class="hint">介绍</div>
       </div>
       <div class="nav-item">
-        <span :class="['dot']">
-      </span>
+        <span :class="['dot']"></span>
         <div class="hint">技能</div>
       </div>
       <div class="nav-item">
-        <span :class="['dot']">
-      </span>
+        <span :class="['dot']"></span>
         <div class="hint">项目</div>
       </div>
       <div class="nav-dot" :style="pos"></div>
@@ -35,7 +31,7 @@ export default {
     ...mapState(['curIndex']),
     pos () {
       return {
-        transform: `translateY(${ this.curIndex * 30 }px)`
+        transform: `translateY(${ this.curIndex * 50 }px)`
       }
     }
   }
@@ -43,7 +39,8 @@ export default {
 </script>
 <style scoped lang="less">
 @hintActColor: rgba(0, 0, 0, .7);
-
+@itemWidth: 30px;
+@itemHeight: 30px;
 .progress {
   position: fixed;
   right: 0;
@@ -59,32 +56,22 @@ export default {
   .nav-wrapper {
     position: relative;
     .nav-item {
-      width: 30px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
       cursor: pointer;
-
+      margin: 20px;
       &:hover>.hint {
         transform: translateX(-40px);
         opacity: 1;
       }
-
       .dot {
-        width: 10px;
-        height: 10px;
+        display: block;
+        width: 15px;
+        height: 15px;
         border-radius: 20px;
         background: rgba(0, 0, 0, 0.1);
         transition: all .3s ease-out;
         font-size: 14px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
-
-
       .hint {
         position: absolute;
         left: -14px;
@@ -103,8 +90,8 @@ export default {
       }
     }
     .nav-dot {
-      width: 30px;
-      height: 30px;
+      width: @itemWidth;
+      height: @itemHeight;
       position: absolute;
       left: 0;
       top: 0;
@@ -115,9 +102,9 @@ export default {
       &:after {
         content: '';
         display: block;
-        width: 14px;
-        height: 14px;
-        border-radius: 7px;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, .2);
         background: #fff;
       }

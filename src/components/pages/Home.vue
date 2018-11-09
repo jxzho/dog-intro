@@ -24,7 +24,7 @@
 <script>
 import Social from '@/common/Social.vue';
 export default {
-  name: 'PageF',
+  name: 'Home',
   data() {
     return {
       dialogueShow: false
