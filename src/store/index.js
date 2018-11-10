@@ -4,6 +4,7 @@ Vue.use(Vuex);
 
 const state = {
   curIndex: 0,
+  transitionEnd: true,
   ifShowViewer: false,
   url: ''
 };
@@ -11,6 +12,9 @@ const state = {
 const mutations = {
   changeIndex (state, index) {
     state.curIndex = index;
+  },
+  changeTranEnd (state, boolean) {
+    state.transitionEnd = boolean;
   },
   showViewer (state, url) {
     state.ifShowViewer = true;

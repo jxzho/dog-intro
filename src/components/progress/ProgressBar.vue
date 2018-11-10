@@ -1,21 +1,10 @@
 <template>
   <nav class="progress">
     <div class="nav-wrapper">
-      <div class="nav-item">
-        <span class="dot"></span>
-        <div class="hint">主页</div>
-      </div>
-      <div class="nav-item">
-        <span :class="['dot']"></span>
-        <div class="hint">介绍</div>
-      </div>
-      <div class="nav-item">
-        <span :class="['dot']"></span>
-        <div class="hint">技能</div>
-      </div>
-      <div class="nav-item">
-        <span :class="['dot']"></span>
-        <div class="hint">项目</div>
+      <div class="nav-item" v-for="(item, index) of hintList" :key="index">
+        <span class="dot" 
+              @click="handleJumpPage(index)"></span>
+        <div class="hint">{{item}}</div>
       </div>
       <div class="nav-dot" :style="pos"></div>
     </div>
@@ -26,12 +15,27 @@ import Velocity from 'velocity-animate';
 import { mapState } from 'vuex';
 export default {
   name: 'ProgressBar',
-  created() {},
+  data () {
+    return {
+      hintList: ['主页', '自我介绍', '技能', '项目'],
+      timer: null
+    }
+  },
+  methods: {
+    handleJumpPage (index) {
+      clearTimeout(this.timer);
+      if (!this.transitionEnd) return;
+      this.timer = setTimeout(() => {
+        this.$store.commit('changeTranEnd', false);
+        this.$store.commit('changeIndex', index);
+      }, 100);
+    }
+  },
   computed: {
-    ...mapState(['curIndex']),
+    ...mapState(['curIndex', 'transitionEnd']),
     pos () {
       return {
-        transform: `translateY(${ this.curIndex * 50 }px)`
+        transform: `translateY(${ this.curIndex * 45 }px)`
       }
     }
   }
@@ -55,33 +59,36 @@ export default {
   z-index: 2;
   .nav-wrapper {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .nav-item {
       position: relative;
-      cursor: pointer;
-      margin: 20px;
-      &:hover>.hint {
-        transform: translateX(-40px);
-        opacity: 1;
-      }
+      display: flex;
+      align-items: center;
       .dot {
         display: block;
         width: 15px;
         height: 15px;
         border-radius: 20px;
+        margin: 15px;
         background: rgba(0, 0, 0, 0.1);
         transition: all .3s ease-out;
-        font-size: 14px;
+        cursor: pointer;
+        &:hover + .hint {
+          transform: translateX(-50px);
+          opacity: 1;
+        }
       }
       .hint {
         position: absolute;
-        left: -14px;
-        padding: 5px 18px;
+        z-index: -1;
+        right: -15px;
+        padding: 6px 20px;
         border-radius: 2px;
         opacity: 0;
         background: #fff;
-        transition: all .8s;
-        font-size: 12px;
-        line-height: 12px;
+        transition: all .6s;
         white-space: nowrap;
         font-weight: 600;
         text-align: center;
@@ -90,8 +97,9 @@ export default {
       }
     }
     .nav-dot {
-      width: @itemWidth;
-      height: @itemHeight;
+      width: 45px;
+      height: 45px;
+      box-sizing: border-box;
       position: absolute;
       left: 0;
       top: 0;

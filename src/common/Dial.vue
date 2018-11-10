@@ -22,7 +22,8 @@ export default {
       planets: ['JavaScipt', 'HTML', 'CSS', 'Vue', 'jQuery', 'PS', 'Node', 'less'],
       curIndex: 7,
       lastIndex: 0,
-      timer: null
+      timer: null,
+      dialDuration: 3000
     }
   },
   name: 'Dial',
@@ -40,16 +41,16 @@ export default {
       this.timer = setInterval(() => {
         this.handleRotate(this.curIndex);
         this.curIndex = this.curIndex + 1 > 7 ? 0 : this.curIndex + 1 ;
-      }, intervalTime);
+      }, this.dialDuration);
     }
   },
   mounted() {
-    // this.dialAutoPlay(3000);
+    this.dialAutoPlay(this.dialDuration);
   },
   created () {
     // 监听switch action
     this.$eventBus.$on('onPlay', () => {
-      this.dialAutoPlay(3000);
+      this.dialAutoPlay(this.dialDuration);
     });
     this.$eventBus.$on('offPlay', () => {
       clearInterval(this.timer);

@@ -40,14 +40,13 @@ import Intro from '@/components/pages/Intro.vue';
 import Skill from '@/components/pages/Skill.vue';
 import Project from '@/components/pages/Project.vue';
 import ProgressBar from '@/components/progress/ProgressBar.vue';
+import { mapState } from 'vuex'; 
 export default {
   name: "app",
   data () {
     return {
       timer: null,
-      curIndex: 0,
-      pageList: [],
-      transitionEnd: true
+      pageList: []
     }
   },
   components: {
@@ -55,7 +54,7 @@ export default {
   },
   methods: {
     handleTranEnd () {
-      this.transitionEnd = true;
+      this.$store.commit('changeTranEnd', true);
       clearTimeout(this.timer);
       this.timer = null;
     },
@@ -67,11 +66,18 @@ export default {
         (e.wheelDelta > 0) && this.curIndex === 0) return;
       if (!this.transitionEnd) return;
       this.timer = setTimeout(() => {
-        this.transitionEnd = false
-        e.wheelDelta < 0 ? this.curIndex++ : this.curIndex-- ;
-        this.$store.commit('changeIndex', this.curIndex);
+        this.$store.commit('changeTranEnd', false);
+        e.wheelDelta < 0 
+          ? this.changeIndex(this.curIndex + 1) 
+          : this.changeIndex(this.curIndex - 1) ;
       }, 100);
+    },
+    changeIndex (index) {
+      this.$store.commit('changeIndex', index);
     }
+  },
+  computed: {
+    ...mapState(['curIndex', 'transitionEnd'])
   }
 };
 </script>

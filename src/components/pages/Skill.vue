@@ -66,6 +66,7 @@ export default {
   box-sizing: border-box;
   background: #159957;
   position: relative;
+  overflow: hidden;
   .skill-panel {
     margin-top: 20px;
     border-radius: 4px;

@@ -2,21 +2,25 @@
   <div class="project">
     <title-cp title="项目" :style="titleColor"></title-cp>
     <div class="project-panel">
-      <ul class="project-list">
+      <ul class="project-list" ref="container">
         <li class="project-item" v-for="(item, index) of projects" :key="index">
+          <!-- title and eye -->
           <div class="title-wrapper">
             <h2 class="title">{{item.title}}</h2>
             <img class="preview" src="https://cdn.junxio.site/static/info/eye.svg"
                  @click="handleShowClick(index)">
           </div>
+          <!-- content -->
           <p class="content">{{item.content}}</p>
-          <button :class="['btn', {up: index === curIndex}]" 
-                  @click="handleChangeCindex(index)">
+          <button :class="['btn', {up: index === showHideIndex}]" 
+                  @click="handleChangeSHIndex(index)">
             <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="30" height="30"><path d="M972.69 286.413L529.478 757.491c-1.327 1.327-3.096 1.769-3.981 1.769s-2.654 0-3.981-1.327L49.995 314.721c-11.943-11.5-30.963-10.616-42.021 1.327s-10.616 30.963 1.327 42.021l471.078 443.212c12.827 11.943 29.194 18.135 46.887 17.693 17.251-.442 33.617-7.962 45.56-20.347l443.212-471.521c5.308-5.75 7.962-13.27 7.961-20.347 0-7.962-3.096-15.924-9.289-21.674-11.943-11.5-30.963-10.616-42.021 1.327z"/></svg>
           </button>
-          <ul class="detail" v-show="index === curIndex">
+          <!-- hidden content -->
+          <ul class="detail" v-show="index === showHideIndex">
             <li v-for="item of item.detail">{{item}}</li>
           </ul>
+          <!-- preview area -->
           <transition>
             <div class="show" v-show="index === showIndex">
               <img class="preview" 
@@ -74,7 +78,7 @@ export default {
           viewerUrl: "https://cdn.junxio.site/static/QRcode/qunar_qr_code.png"
         }
       ],
-      curIndex: -1,
+      showHideIndex: -1,
       showIndex: -1,
       captureIndex: -1,
       viewerUrl: ''
@@ -82,8 +86,8 @@ export default {
   },
   name: 'Project',
   methods: {
-    handleChangeCindex (index) {
-      this.curIndex = this.curIndex === index ? -1 : index;
+    handleChangeSHIndex (index) {
+      this.showHideIndex = this.showHideIndex === index ? -1 : index;
     },
     handleShowClick (index) {
       this.showIndex = this.showIndex === index ? -1 : index;
@@ -105,24 +109,31 @@ export default {
 @iconWidth: 10px;
   .project {
     background: @grey;
-    padding: 40px;
+    padding: 20px 40px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     .project-panel {
-      margin-top: 50px;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
       .project-list {
-        width: 600px;
+        transition: .4s ease-out;
         .project-item {
+          width: 600px;
           background: #fff;
           border-radius: 4px;
           padding: 20px;
-          margin-bottom: 20px;
           box-shadow: 0 0 10px rgba(0, 0, 0, .1);
           color: rgb(51, 51, 61);
           position: relative;
           font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+          margin-top: 10px;
           .title-wrapper {
             display: flex;
             justify-content: space-between;
