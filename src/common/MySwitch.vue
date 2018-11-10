@@ -17,7 +17,7 @@ export default {
   name: 'MySwitch',
   data () {
     return {
-      ifSwitch: true
+      ifSwitch: false
     }
   },
   methods: {

@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted() {
-    this.dialAutoPlay(this.dialDuration);
+    // this.dialAutoPlay(this.dialDuration);
   },
   created () {
     // 监听switch action
