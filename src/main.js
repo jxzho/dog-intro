@@ -5,7 +5,6 @@ import '@/assets/styles/border.css';
 import '@/assets/styles/reset.css';
 import '@/assets/styles/iconfont.css';
 import 'assets/styles/media.css';
-import 'assets/js/symbol.js';
 
 Vue.config.productionTip = false;
 Vue.prototype.$eventBus = new Vue(); 
