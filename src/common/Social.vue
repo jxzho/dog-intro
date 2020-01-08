@@ -71,7 +71,6 @@
   </div>
 </template>
 <script>
-import $ from 'jquery';
 import Velocity from 'velocity-animate';
 import Note from 'common/Note.vue';
 export default {
@@ -94,8 +93,7 @@ export default {
       this.curIndex = ++this.curIndex > this.mottoes.length ? 1 : this.curIndex;
     },
     handleMosEnter (e) {
-      const pos = $(e.target).position();
-      $('.nav-bar').css('transform', `translateX(${ pos.left - 5 }px)`);
+      document.querySelector('.nav-bar').style.transform = `translateX(${ e.target.offsetLeft - 5 }px)`
     }
   },
   components: {

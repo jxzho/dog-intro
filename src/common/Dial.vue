@@ -2,20 +2,19 @@
   <div class="dial">
     <div class="center">
       <template v-for="(item, index) of planets">
-        <transition>
+        <transition :key="`dial-tran-${index}`">
           <span :class="['item', `item${ index + 1 }`]" v-show="curIndex == index"></span>
         </transition>
       </template>
     </div>
-    <div class="planet"">
-      <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" @click="handleRotate(index)">
+    <div class="planet">
+      <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" :key="`planet-item-${index}`" @click="handleRotate(index)">
         {{item}}
       </span>
     </div>
   </div>
 </template>
 <script>
-import $ from 'jquery';
 export default {
   data() {
     return {
@@ -30,11 +29,16 @@ export default {
   methods: {
     handleRotate(index) {
       this.curIndex = index;
-      $('.planet').css('transform', `rotate(${ (index - 6) * 45 }deg)`);
-      $('.planet').children('.item').css('transform', `rotate(${ -(index - 6) * 45 }deg)`);
+
+      document.querySelector('.planet').style.transform = `rotate(${ (index - 6) * 45 }deg)`
+      Array.from(document.querySelectorAll('.planet >.item')).forEach((item) => {
+        item.style.transform = `rotate(${ -(index - 6) * 45 }deg)`
+      })
+
       // 清除上一个item激活样式 激活当前item
-      $('.planet').children('.item').get(this.lastIndex).classList.remove('actived');
-      $('.planet').children('.item').get(index).classList.add('actived');
+      document.querySelectorAll('.planet >.item')[this.lastIndex].classList.remove('actived')
+      document.querySelectorAll('.planet >.item')[index].classList.add('actived');
+
       this.lastIndex = index;
     },
     dialAutoPlay(intervalTime) {
@@ -89,7 +93,7 @@ export default {
   .center {
     width: 200px;
     height: 200px;
-    background: url(https://cdn.junxio.site/static/skill/earth.svg) no-repeat;
+    background: url(https://cdn.junxio.com/static/skill/earth.svg) no-repeat;
     background-size: 200px 200px;
     border-radius: 125px;
     position: relative;

@@ -87,26 +87,31 @@ export default {
     height: 100%;
     position: relative;
   }
+  
   .container {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+
     .page {
       position: fixed;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      transition: all .6s ease;
+      transition: all .5s ease;
     }
+
     .prePage {
       transform: translateY(-100%);
     }
+
     .curPage {
       transform: translateY(0%);
     }
+
     .nextPage {
       transform: translateY(100%);
     }

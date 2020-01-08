@@ -2,7 +2,7 @@
   <div class="home">
     <div class="avatar-wrapper">
       <div class="avatar" @mouseenter="dialogueShow = true" @mouseleave="dialogueShow = false">
-        <img src="https://cdn.junxio.site/static/pepsi.png">
+        <img src="https://cdn.junxio.com/static/pepsi.png">
       </div>
         <transition>
           <div class="dialogue" v-show="dialogueShow">hello~</div>
@@ -11,7 +11,7 @@
     <h1 class="name">钟俊雄</h1>
     <social></social>
     <footer class="footer">
-      <a href="https://github.com/junxio220/xio_site" target="_blank">
+      <a href="https://github.com/junxio220/junxio.com" target="_blank">
         <span class="source">Source</span>
       </a>
       <em class="separator">&#124;</em>

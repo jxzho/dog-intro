@@ -5,35 +5,35 @@
     <my-switch></my-switch>
     <div class="skill-panel">
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/bullbasaur.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/bullbasaur.svg">
         <span>javaScript</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/caterpie.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/caterpie.svg">
         <span>css</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/mankey.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/mankey.svg">
         <span>html</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/pidgey.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/pidgey.svg">
         <span>jquery</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/pikachu.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/pikachu.svg">
         <span>vue</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/psyduck.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/psyduck.svg">
         <span>node</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/snorlax.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/snorlax.svg">
         <span>ps</span>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.junxio.site/static/pocket_monster/squirtle.svg">
+        <img src="https://cdn.junxio.com/static/pocket_monster/squirtle.svg">
         <span>less</span>
       </div>
     </div>

@@ -22,25 +22,8 @@
 </template>
 
 <script>
-import BScroll from 'better-scroll';
 export default {
-  name: "Note",
-  created () {
-    this.$nextTick(() => {
-      if (!this.scroll) {
-        this.scroll = new BScroll(this.$refs['note-panel'], {
-          bounce: {
-            top: false,
-            bottom: false
-          }
-        });
-      } else {
-        this.scroll.refresh();
-      }
-    });
-  },
-  mounted () {
-  }
+  name: "Note"
 }
 </script>
 
