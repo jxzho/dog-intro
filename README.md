@@ -1,3 +1,3 @@
 ## 我的个人主页
 
-[LINK](htttps://junxio.com)
+(link is here)[htttps://junxio.com]
