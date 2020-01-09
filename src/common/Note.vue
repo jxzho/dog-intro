@@ -3,27 +3,31 @@
     <ul class="note-list">
       <li class="note-item">
         <p class="message">今天天气不错</p>
-        <span class="time">19:44</span>
+        <span class="time">{{ new Date('2018-2-12') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
         <p class="message">node好难</p>
-        <span class="time">2天前</span>
+        <span class="time">{{ new Date('2018-3-11') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
         <p class="message">快毕业了</p>
-        <span class="time">2天前</span>
+        <span class="time">{{ new Date('2018-6-12') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
         <p class="message">安排</p>
-        <span class="time">2天前</span>
+        <span class="time">{{ new Date('2018-12-25') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { dateFormat } from '@/filters'
 export default {
-  name: "Note"
+  name: "Note",
+  filters: {
+    dateFormat: dateFormat
+  }
 }
 </script>
 
@@ -34,24 +38,28 @@ export default {
   overflow: hidden;
   height: 122px;
   position: relative;
+  
   .note-list {
     .note-item {
       display: flex;
-      background: #6755bd;
+      background-color: #4F86C6;
       color: @grey;
-      border-top: 1px solid #7161c1;
+      border-top: 1px solid transparent;
       padding: 10px 30px 10px 20px;
       height: 40px;
       line-height: 40px;
+      
       .message {
         flex: 1;
-        font-size: 13px;
-        font-weight: 600;
+        font-size: 12px;
+        font-weight: 100;
         letter-spacing: 1px;
       }
+
       .time {
-        color: #8c85ce;
+        color: #fff;
         font-size: 12px;
+        font-weight: 100;
       }
     }
   }

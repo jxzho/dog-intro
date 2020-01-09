@@ -37,8 +37,6 @@
         <span>less</span>
       </div>
     </div>
-
-    <ICP />
   </div>
 </template>
 
@@ -60,15 +58,17 @@ export default {
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
-  background: #159957;
+  background: #5A9367;
   position: relative;
   overflow: hidden;
+
   .skill-panel {
     margin-top: 20px;
     border-radius: 4px;
     width: 500px;
     background: #fff;
     display: none;
+    
     .skill-item {
       display: flex;
       flex-direction: column;

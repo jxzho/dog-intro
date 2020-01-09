@@ -1,5 +1,5 @@
 <template>
-  <div class="icp-info-cont">
+  <div class="icp-info-cont" v-if="show">
     <a href="https://github.com/junxio220/junxio.com" target="_blank">
       <span class="source x_link left">Source</span>
     </a>
@@ -15,7 +15,21 @@ export default {
   name: 'IcpInfo',
   data () {
     return {
-      icp: 20001943
+      icp: 20001943,
+      isMobile: false
+    }
+  },
+  created () {
+    this.init()
+  },
+  methods: {
+    init () {
+      this.isMobile = /Mobile/.test(navigator.userAgent)
+    }
+  },
+  computed: {
+    show () {
+      return !this.isMobile
     }
   }
 }

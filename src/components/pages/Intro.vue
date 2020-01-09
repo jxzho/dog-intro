@@ -30,8 +30,6 @@
         <span class="state">计算机科学与技术</span>
       </div>
     </div>
-
-    <ICP />
   </div>
 </template>
 
@@ -49,15 +47,18 @@ export default {
 <style scoped lang="less">
 @blue:#2c9ab7;
 @panelWidth: 70%;
-@fontSize: 15px;
+@fontSize: 14px;
+@bgColor: #4F86C6;
+
 .intro {
-  background: #faca51;
+  background: @bgColor;
   display: flex;
   flex-direction: column;
   align-items: center;
   perspective: 1000px;
   padding: 40px;
   box-sizing: border-box;
+
   .brief {
     margin-top: 40px;
     padding: 20px 0;
@@ -69,6 +70,7 @@ export default {
     color: rgba(0, 0, 0, .7);
     box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
   }
+
   .person-info {
     margin-top: 30px;
     width: @panelWidth;
@@ -80,6 +82,7 @@ export default {
     flex-wrap: wrap;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
     overflow: hidden;
+
     .person-info-item {
       width: 30%;
       box-sizing: border-box;
@@ -87,12 +90,14 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       .state-icon {
         width: 25px;
         height: 25px;
       } 
+
       .state {
-        margin: 4px 0 0 0;
+        margin: 8px 0 0 0;
       }
     }
   }

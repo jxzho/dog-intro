@@ -67,6 +67,7 @@ export default {
 @Len: unit(250 - 15, px);
 @Lenx: unit(125 - 50, px);
 @Leny: unit(125 - 15, px);
+@activeColor: #44633F;
 
 .v-enter,
 .v-leave-to {
@@ -126,6 +127,7 @@ export default {
 
     .item.actived {
       box-shadow: 0 0px 20px #fff;
+      color: @activeColor;
     }
 
     .item {
@@ -144,8 +146,10 @@ export default {
       line-height: 30px;
       user-select: none;
       background: #fff;
+
       &:hover {
         box-shadow: 0 0px 20px #fff;
+        color: @activeColor;
       }
     }
 

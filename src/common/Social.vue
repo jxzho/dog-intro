@@ -53,23 +53,23 @@
         </div>
       </div>
     </div>
+
     <div class="brief">
       <i class="trigon"></i>
       <template v-for="(item, index) of mottoes">
-        <transition>
-          <p class="motto" v-show="curIndex == index + 1">
-            {{item}}
-          </p>
+        <transition :key="`trigon-tran-${index}`">
+          <p class="motto" v-show="curIndex == index + 1">{{ item }}</p>
         </transition>
       </template>
-      <button class="to-right"
-              @click="handleChangeMo">
+      <button class="to-right" @click="handleChangeMo">
         &#xe608;
       </button>
     </div>
+
     <note></note>
   </div>
 </template>
+
 <script>
 export default {
   name: 'Social',
@@ -96,6 +96,7 @@ export default {
   }
 }
 </script>
+
 <style scoped lang="less">
 @icon-width: 50px;
 @icon-wrapper: 60px;
@@ -113,16 +114,17 @@ export default {
 .v-leave-active {
   transition: all .4s ease;
 }
+
 .social {
-  margin-top: 20px;
   position: relative;
-  box-shadow: 0 10px 50px rgba(92, 76, 168, .15);
   width: 320px;
+  box-shadow: 0 10px 45px 2px rgba(0, 0, 0, .15);
+  
   .nav-bar {
     width: 70px;
     height: 4px;
     border-radius: 2px;
-    background: #5c4ca8;
+    background-color: #4F86C6;
     box-shadow: 0 2px 20px rgba(92, 76, 168, .8);
     transition: all .8s ease;
     position: absolute;
@@ -160,14 +162,14 @@ export default {
         font-family: 'iconfont';
         color: #fff;  
         cursor: pointer;
-        text-shadow: 0 0 2px rgba(0, 0, 0, .2);
+        text-shadow: 0 0 5px rgba(0, 0, 0, .5);
       }
       .switch-btn-right {
         background: transparent;
         font-family: 'iconfont';
         color: #fff;
         cursor: pointer;
-        text-shadow: 0 0 2px rgba(0, 0, 0, .2);
+        text-shadow: 0 0 5px rgba(0, 0, 0, .5);
       }
     }
     .icons-menu {
@@ -201,7 +203,7 @@ export default {
         
         &:hover>.stroke-github>circle {
           stroke-dashoffset: 0px;
-          stroke: #65d35b;
+          stroke: #8FBC94;
         }
 
         .stroke-github {
@@ -246,7 +248,7 @@ export default {
 
          &:hover>.stroke-weibo>circle {
           stroke-dashoffset: 0px;
-          stroke: orange;
+          stroke: #FDD692;
         }
 
         .stroke-weibo {
@@ -264,7 +266,7 @@ export default {
         .iconStyle();
 
         &:hover>svg>path {
-          fill: #65d35b;
+          fill: #8FBC94;
         }
       }
 
@@ -288,14 +290,14 @@ export default {
         .iconStyle();
 
         &:hover>svg>path {
-          fill: orange;
+          fill: #FDD692;
         }
       }
     }
   }
 
   .brief {
-    background: #5c4ca8;
+    background: #4F86C6;
     text-align: center;
     height: 54px;
     color: @grey;
@@ -305,7 +307,7 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 13px;
-    font-weight: 600;
+
     .trigon {
       display: block;
       width: 2px;
@@ -330,6 +332,8 @@ export default {
     }
     .motto {
       position: absolute;
+      font-size: 12px;
+      font-weight: 100;
     }
   }
   

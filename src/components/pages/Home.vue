@@ -2,16 +2,14 @@
   <div class="home">
     <div class="avatar-wrapper">
       <div class="avatar" @mouseenter="dialogueShow = true" @mouseleave="dialogueShow = false">
-        <img src="https://cdn.junxio.com/static/pepsi.png">
+        <img src="https://cdn.junxio.com/static/junxio.jpg">
       </div>
         <transition>
-          <div class="dialogue" v-show="dialogueShow">hello~</div>
+          <div class="dialogue" v-show="dialogueShow">Hi~</div>
         </transition>
     </div>
-
-    <h1 class="name">钟俊雄</h1>
-    <social></social>
-
+    <h2 class="name">钟俊雄</h2>
+    <social />
     <ICP />
   </div>
 </template>
@@ -33,12 +31,12 @@ export default {
 .v-enter,
 .v-leave-to {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(-10px);
 }
 
 .v-enter-active,
 .v-leave-active {
-  transition: all .6s;
+  transition: all .5s ease-in-out;
 }
 
 .home {
@@ -57,15 +55,17 @@ export default {
       height: @avatarWidth;
       background: #fff;
       border: 4px solid #fff;
-      border-radius: unit(@avatarWidth/2, px);
+      border-radius: unit(@avatarWidth, px);
       overflow: hidden;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
       transition: .2s;
+
       img {
         width: 100%;
       }
+      
       &:hover {
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3); 
+        box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.4); 
       }
     }
 
@@ -79,13 +79,13 @@ export default {
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
-      background: #5c5cfb;
-      box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.2);
+      background: #4F86C6;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.16);
     }
   }
 
   .name {
-    margin-top: 20px;
+    margin: 40px 0;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.7);
     font-weight: 600;
