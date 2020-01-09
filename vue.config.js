@@ -1,11 +1,13 @@
-const path = require('path');
+const path = require('path')
+
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
+
 module.exports = {
   baseUrl: './',
   lintOnSave: false,
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     config.resolve.alias
       .set('@$', resolve('src'))
       .set('assets', resolve('src/assets'))
@@ -23,7 +25,7 @@ module.exports = {
       preProcessor: 'less',
       patterns: [
         path.resolve(__dirname, './src/assets/styles/theme.less'),
-        path.resolve(__dirname, './src/assets/styles/mixins.less'),
+        path.resolve(__dirname, './src/assets/styles/mixins.less')
       ]
     }
   },
