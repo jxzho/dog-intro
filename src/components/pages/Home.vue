@@ -8,17 +8,11 @@
           <div class="dialogue" v-show="dialogueShow">hello~</div>
         </transition>
     </div>
+
     <h1 class="name">钟俊雄</h1>
     <social></social>
-    <footer class="footer">
-      <a href="https://github.com/junxio220/junxio.com" target="_blank">
-        <span class="source">Source</span>
-      </a>
-      <em class="separator">&#124;</em>
-      <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">
-        <p class="records">粤&nbsp;ICP&nbsp;备案18133198</p>
-      </a>
-    </footer>
+
+    <ICP />
   </div>
 </template>
 
@@ -35,7 +29,7 @@ export default {
 
 <style scoped lang="less">
 @avatarWidth: 150px;
-@footerColor: rgba(0, 0, 0, .4);
+
 .v-enter,
 .v-leave-to {
   opacity: 0;
@@ -95,25 +89,6 @@ export default {
     font-size: 24px;
     color: rgba(0, 0, 0, 0.7);
     font-weight: 600;
-  }
-
-  .footer {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    font-size: 11px;
-    color: rgba(0, 0, 0, .3);
-    
-    .source{
-      color: @footerColor;
-    }
-    .separator {
-      margin: 0 10px;
-      color: @footerColor;
-    }
-    .records {
-      color: @footerColor;
-    }
   }
 }
 </style>

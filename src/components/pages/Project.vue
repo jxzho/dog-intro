@@ -42,6 +42,8 @@
       </ul>
     </div>
     <viewer></viewer>
+
+    <ICP />
   </div>
 </template>
 

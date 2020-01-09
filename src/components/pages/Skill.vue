@@ -37,6 +37,8 @@
         <span>less</span>
       </div>
     </div>
+
+    <ICP />
   </div>
 </template>
 
