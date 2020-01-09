@@ -5,6 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  outputDir: './docs',
   baseUrl: './',
   lintOnSave: false,
   chainWebpack: config => {
