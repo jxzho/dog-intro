@@ -1,2 +1,19 @@
 @blue:#4f8dee;
 @grey:#f7f9fa;
+
+.x_link {
+  transition: .3s ease;
+
+  &:hover {
+    text-decoration: underline;
+    color: @blue !important;
+  }
+
+  &.left:hover {
+    transform: translateX(-5px) !important;
+  }
+
+  &.right:hover {
+    transform: translateX(5px) !important;
+  }
+}
