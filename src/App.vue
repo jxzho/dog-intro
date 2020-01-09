@@ -35,12 +35,7 @@
 </template>
 
 <script>
-import Home from '@/components/pages/Home.vue';
-import Intro from '@/components/pages/Intro.vue';
-import Skill from '@/components/pages/Skill.vue';
-import Project from '@/components/pages/Project.vue';
-import ProgressBar from '@/components/progress/ProgressBar.vue';
-import { mapState } from 'vuex'; 
+import { mapState } from 'vuex';
 export default {
   name: "app",
   data () {
@@ -48,9 +43,6 @@ export default {
       timer: null,
       pageList: []
     }
-  },
-  components: {
-    Home, Intro, Skill, Project, ProgressBar
   },
   methods: {
     handleTranEnd () {
@@ -94,9 +86,10 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 
     .page {
-      position: fixed;
+      position: absolute;
       left: 0;
       top: 0;
       width: 100%;

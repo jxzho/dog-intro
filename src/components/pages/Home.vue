@@ -21,20 +21,18 @@
     </footer>
   </div>
 </template>
+
 <script>
-import Social from '@/common/Social.vue';
 export default {
   name: 'Home',
   data() {
     return {
       dialogueShow: false
     }
-  },
-  components: {
-    Social
   }
 }
 </script>
+
 <style scoped lang="less">
 @avatarWidth: 150px;
 @footerColor: rgba(0, 0, 0, .4);

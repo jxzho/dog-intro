@@ -1,6 +1,6 @@
 <template>
   <div class="skill">
-    <title-cp title="技能"></title-cp>
+    <page-title title="技能"></page-title>
     <dial class="dial"></dial>
     <my-switch></my-switch>
     <div class="skill-panel">
@@ -41,9 +41,6 @@
 </template>
 
 <script>
-import TitleCp from 'common/Title.vue';
-import Dial from 'common/Dial.vue';
-import mySwitch from 'common/MySwitch.vue';
 export default {
   data () {
     return {
@@ -51,9 +48,6 @@ export default {
     }
   },
   name: 'Skill',
-  components: {
-    TitleCp, Dial, mySwitch
-  }
 }
 </script>
 

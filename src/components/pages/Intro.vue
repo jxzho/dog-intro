@@ -1,6 +1,6 @@
 <template>
   <div class="intro">
-    <title-cp :title="title"></title-cp>
+    <page-title :title="title"></page-title>
     <div class="brief">
       前端学徒，熟悉JavaScript、Vue
     </div>
@@ -34,17 +34,13 @@
 </template>
 
 <script>
-import TitleCp from 'common/Title';
 export default {
   data () {
     return {
       title: "自我介绍"
     }
   },
-  name: 'Intro',
-  components: {
-    TitleCp
-  }
+  name: 'Intro'
 }
 </script>
 

@@ -11,7 +11,6 @@
   </nav>
 </template>
 <script>
-import Velocity from 'velocity-animate';
 import { mapState } from 'vuex';
 export default {
   name: 'ProgressBar',

@@ -71,8 +71,6 @@
   </div>
 </template>
 <script>
-import Velocity from 'velocity-animate';
-import Note from 'common/Note.vue';
 export default {
   name: 'Social',
   data () {
@@ -95,9 +93,6 @@ export default {
     handleMosEnter (e) {
       document.querySelector('.nav-bar').style.transform = `translateX(${ e.target.offsetLeft - 5 }px)`
     }
-  },
-  components: {
-    Note
   }
 }
 </script>

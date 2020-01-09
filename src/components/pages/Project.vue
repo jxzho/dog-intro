@@ -1,6 +1,6 @@
 <template>
   <div class="project">
-    <title-cp title="项目" :style="titleColor"></title-cp>
+    <page-title title="项目" :style="titleColor"></page-title>
     <div class="project-panel">
       <ul class="project-list" ref="container">
         <li class="project-item" v-for="(item, index) of projects" :key="index">
@@ -18,7 +18,7 @@
           </button>
           <!-- hidden content -->
           <ul class="detail" v-show="index === showHideIndex">
-            <li v-for="item of item.detail">{{item}}</li>
+            <li v-for="(item, index) of item.detail" :key="`detail-item-${index}`">{{item}}</li>
           </ul>
           <!-- preview area -->
           <transition>
@@ -46,8 +46,6 @@
 </template>
 
 <script>
-import TitleCp from 'common/Title.vue';
-import Viewer from 'common/Viewer.vue';
 export default {
   data () {
     return {
@@ -98,9 +96,6 @@ export default {
     handleShowViewer (url) {
       this.$store.commit('showViewer', url);
     }
-  },
-  components: {
-    TitleCp, Viewer
   }
 }
 </script>
@@ -114,7 +109,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+
     .project-panel {
       width: 100%;
       flex: 1;
@@ -122,8 +117,10 @@ export default {
       justify-content: center;
       align-items: center;
       overflow: hidden;
+
       .project-list {
         transition: .4s ease-out;
+
         .project-item {
           width: 600px;
           background: #fff;
@@ -134,19 +131,23 @@ export default {
           position: relative;
           font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
           margin-top: 10px;
+
           .title-wrapper {
             display: flex;
             justify-content: space-between;
+
             .title {
               font-size: 20px;
               font-weight: 600;
             }
+
             .preview {
               width: 20px;
               height: 20px;
               cursor: pointer;
             }
           }
+
           .content {
             font-weight: 300;
             font-size: 17px;
@@ -154,9 +155,11 @@ export default {
             margin-top: 18px;
             letter-spacing: .1em;
           }
+
           .detail {
             margin-top: 10px;
             padding-left: 20px;
+
             li {
               list-style: disc;
               font-size: 16px;
@@ -165,6 +168,7 @@ export default {
               padding: .2em 0;
             }
           }
+          
           .btn {
             position: absolute;
             bottom: 10px;
@@ -173,15 +177,18 @@ export default {
             width: 15px;
             height: 15px;
             cursor: pointer;
+
             svg {
               width: 100%;
               height: 100%;
               fill: rgb(51, 51, 61);
             }
           }
+
           .up {
             transform: rotate(180deg);
           }
+
           .show {
             position: absolute;
             top: 0;
@@ -192,11 +199,13 @@ export default {
             background: #fff;
             border-radius: 4px;
             box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
             img {
               width: 25px;
               height: 25px;
               padding: 10px;
             }
+
             .capture {
               position: fixed;
               width: unit(375 * 0.6, px);
@@ -211,6 +220,7 @@ export default {
               margin-top: unit(-667 * 0.6/2, px);
               margin-left: unit(-375 * 0.6/2, px);
             }
+
             .qr-code {
               cursor: pointer;
             }
@@ -221,6 +231,7 @@ export default {
       }
     }
   }
+
 .v-enter, .v-leave-to {
   opacity: 0;
   transform: translateX(-30px);
@@ -228,6 +239,7 @@ export default {
 .v-enter-active, .v-leave-active {
   transition: .3s ease;
 }
+
 .capture-enter {
   opacity: 0;
   transform: translateX(-20px);
