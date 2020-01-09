@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.3748c9fd7c24f41baf5a3de91ec3a61f.js"
+  "precache-manifest.d459edcd11b0cae6b1e656be3943e751.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "junxio.com"});
