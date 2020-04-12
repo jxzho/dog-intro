@@ -47,6 +47,7 @@ export default {
   methods: {
     handleTranEnd () {
       this.$store.commit('changeTranEnd', true);
+
       clearTimeout(this.timer);
       this.timer = null;
     },
@@ -54,9 +55,12 @@ export default {
       // wheelDelta > 0 up or wheelDelta < 0 down
       clearTimeout(this.timer);
       this.timer = null;
+
       if ( (e.wheelDelta < 0 && this.curIndex === 3 ) || 
         (e.wheelDelta > 0) && this.curIndex === 0) return;
+
       if (!this.transitionEnd) return;
+
       this.timer = setTimeout(() => {
         this.$store.commit('changeTranEnd', false);
         e.wheelDelta < 0 
