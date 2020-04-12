@@ -9,11 +9,12 @@ const requireComponent = require.context(
 )
 
 requireComponent.keys().slice(1).forEach(fileName => {
-  const componentConfig = requireComponent(fileName)
-
-  const componentName = capitalizeFirstLetter(
-    /([^/]+)\.vue$/.exec(fileName)[1]
-  )
-  
-  Vue.component(componentName, componentConfig.default || componentConfig)
+  if (fileName.match('./common') || fileName.match('./components')) {
+    const componentConfig = requireComponent(fileName)
+    const componentName = capitalizeFirstLetter(
+      /([^/]+)\.vue$/.exec(fileName)[1]
+    )
+    
+    Vue.component(componentName, componentConfig.default || componentConfig)
+  }
 })
