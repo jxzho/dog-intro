@@ -42,7 +42,7 @@ export default {
   .note-list {
     .note-item {
       display: flex;
-      background-color: #4F86C6;
+      background-color: @blue;
       color: @grey;
       border-top: 1px solid transparent;
       padding: 10px 30px 10px 20px;

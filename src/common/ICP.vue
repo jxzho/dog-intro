@@ -1,10 +1,10 @@
 <template>
   <div class="icp-info-cont" v-if="show">
-    <a href="https://github.com/junxio220/junxio.com" target="_blank">
+    <a :href="sourceUrl" target="_blank">
       <span class="source x_link left">Source</span>
     </a>
     <em class="separator">&#124;</em>
-    <a href="http://www.beian.miit.gov.cn" target="_blank">
+    <a :href="recordUrl" target="_blank">
       <p class="record x_link right">粤&nbsp;ICP&nbsp;备{{ icp }}号</p>
     </a>
   </div>
@@ -15,6 +15,8 @@ export default {
   name: 'IcpInfo',
   data () {
     return {
+      sourceUrl: 'https://github.com/junxio220/junxio.com',
+      recordUrl: 'http://www.beian.miit.gov.cn',
       icp: 20001943,
       isMobile: false
     }

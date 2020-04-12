@@ -1,40 +1,13 @@
 <template>
   <div class="skill">
-    <page-title title="技能"></page-title>
+    <page-title :title="oRo.Skill.pageTitle"></page-title>
     <dial class="dial"></dial>
     <my-switch></my-switch>
+
     <div class="skill-panel">
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/bullbasaur.svg">
-        <span>javaScript</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/caterpie.svg">
-        <span>css</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/mankey.svg">
-        <span>html</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/pidgey.svg">
-        <span>jquery</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/pikachu.svg">
-        <span>vue</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/psyduck.svg">
-        <span>node</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/snorlax.svg">
-        <span>ps</span>
-      </div>
-      <div class="skill-item">
-        <img src="https://cdn.junxio.com/static/pocket_monster/squirtle.svg">
-        <span>less</span>
+      <div class="skill-item" v-for="item of oRo.Skill.list" :key="item.text">
+        <img :src="item.iconUrl">
+        <span>{{ item.text }}</span>
       </div>
     </div>
   </div>
@@ -44,7 +17,7 @@
 export default {
   data () {
     return {
-      curIndex: 0
+      oRo: { ...this.$global }
     }
   },
   name: 'Skill',
@@ -58,7 +31,7 @@ export default {
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
-  background: #5A9367;
+  background: #06d6a0;
   position: relative;
   overflow: hidden;
 

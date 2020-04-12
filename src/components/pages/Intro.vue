@@ -1,33 +1,31 @@
 <template>
   <div class="intro">
-    <page-title :title="title"></page-title>
-    <div class="brief">
-      前端学徒，熟悉JavaScript、Vue
-    </div>
+    <page-title :title="oRo.Introduce.pageTitle"></page-title>
+    <div class="brief">{{ oRo.Introduce.brief }}</div>
     <div class="person-info">
       <div class="person-info-item">
-        <img class="state-icon" src="https://cdn.junxio.com/static/info/cake.svg">
-        <span class="state">1996.02.25</span>
+        <img class="state-icon" :src="oRo.Introduce.birth.iconUrl">
+        <span class="state">{{ oRo.Introduce.birth.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" src="https://cdn.junxio.com/static/info/university.svg">
-        <span class="state">东莞理工学院</span>
+        <img class="state-icon" :src="oRo.Introduce.university.iconUrl">
+        <span class="state">{{ oRo.Introduce.university.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" src="https://cdn.junxio.com/static/info/pin.svg">
-        <span class="state">home.深圳</span>
+        <img class="state-icon" :src="oRo.Introduce.home.iconUrl">
+        <span class="state">{{ oRo.Introduce.home.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" src="https://cdn.junxio.com/static/info/mail.svg">
-        <span class="state">me@junxio.site</span>
+        <img class="state-icon" :src="oRo.Introduce.mail.iconUrl">
+        <span class="state">{{ oRo.Introduce.mail.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" src="https://cdn.junxio.com/static/info/phone.svg">
-        <span class="state">13049896626</span>
+        <img class="state-icon" :src="oRo.Introduce.tel.iconUrl">
+        <span class="state">{{ oRo.Introduce.tel.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" src="https://cdn.junxio.com/static/info/cap.svg">
-        <span class="state">计算机科学与技术</span>
+        <img class="state-icon" :src="oRo.Introduce.major.iconUrl">
+        <span class="state">{{ oRo.Introduce.major.text }}</span>
       </div>
     </div>
   </div>
@@ -37,7 +35,7 @@
 export default {
   data () {
     return {
-      title: "自我介绍"
+      oRo: { ...this.$global }
     }
   },
   name: 'Intro'
@@ -45,13 +43,11 @@ export default {
 </script>
 
 <style scoped lang="less">
-@blue:#2c9ab7;
 @panelWidth: 70%;
 @fontSize: 14px;
-@bgColor: #4F86C6;
 
 .intro {
-  background: @bgColor;
+  background: @blue;
   display: flex;
   flex-direction: column;
   align-items: center;

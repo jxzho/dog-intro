@@ -2,13 +2,13 @@
   <div class="home">
     <div class="avatar-wrapper">
       <div class="avatar" @mouseenter="dialogueShow = true" @mouseleave="dialogueShow = false">
-        <img src="https://cdn.junxio.com/static/junxio.jpg">
+        <img :src="oRo.Home.avatarUrl">
       </div>
-        <transition>
-          <div class="dialogue" v-show="dialogueShow">Hi~</div>
-        </transition>
+      <transition>
+        <div class="dialogue" v-show="dialogueShow">{{ oRo.Home.greeting }}</div>
+      </transition>
     </div>
-    <h2 class="name">钟俊雄</h2>
+    <h2 class="name">{{ oRo.Home.myName }}</h2>
     <social />
     <ICP />
   </div>
@@ -19,7 +19,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      dialogueShow: false
+      dialogueShow: false,
+      oRo: { ...this.$global }
     }
   }
 }
@@ -27,17 +28,6 @@ export default {
 
 <style scoped lang="less">
 @avatarWidth: 150px;
-
-.v-enter,
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(-10px);
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: all .5s ease-in-out;
-}
 
 .home {
   background: @grey;
@@ -50,7 +40,6 @@ export default {
     position: relative;
 
     .avatar {
-      margin-top: -100px;
       width: @avatarWidth;
       height: @avatarWidth;
       background: #fff;
@@ -62,6 +51,8 @@ export default {
 
       img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       
       &:hover {
@@ -71,16 +62,17 @@ export default {
 
     .dialogue {
       position: absolute;
-      right: -80px;
-      top: -50px;
+      left: 100%;
+      top: 30px;
       color: #fff;
       font-weight: 100;
       padding: 10px 20px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
-      background: #4F86C6;
+      background: @blue;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.16);
+      white-space: nowrap;
     }
   }
 
@@ -90,5 +82,16 @@ export default {
     color: rgba(0, 0, 0, 0.7);
     font-weight: 600;
   }
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translate(-20px, 0);
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all .5s ease;
 }
 </style>

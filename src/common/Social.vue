@@ -124,7 +124,7 @@ export default {
     width: 70px;
     height: 4px;
     border-radius: 2px;
-    background-color: #4F86C6;
+    background-color: @blue;
     box-shadow: 0 2px 20px rgba(92, 76, 168, .8);
     transition: all .8s ease;
     position: absolute;
@@ -218,7 +218,7 @@ export default {
 
         &:hover>.stroke-zhihu>circle {
           stroke-dashoffset: 0px;
-          stroke: #70a2ec;
+          stroke: @blue;
         }
 
         .stroke-zhihu {
@@ -274,7 +274,7 @@ export default {
         .iconStyle();
 
         &:hover>svg>path {
-          fill: #70a2ec;
+          fill: @blue;
         }
       }
 
@@ -297,7 +297,7 @@ export default {
   }
 
   .brief {
-    background: #4F86C6;
+    background: @blue;
     text-align: center;
     height: 54px;
     color: @grey;
