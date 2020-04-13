@@ -24,7 +24,7 @@
       },
       mail: {
         iconUrl: `${cdnDomain}/info/mail.svg`,
-        text: 'junxio220@gmail.com'
+        text: 'me@junxio.com'
       },
       tel: {
         iconUrl: `${cdnDomain}/info/phone.svg`,
