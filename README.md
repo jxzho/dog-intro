@@ -1,3 +1,5 @@
 ## 我的个人主页
 
-`链接：` [link](https://junxio.com)
+<p>
+  <a href="https://junxio.com" target="_blank">Me</a>
+</p>
