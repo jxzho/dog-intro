@@ -5,7 +5,7 @@ import store from '@/store'
 import '@/assets/styles'
 
 import './plugins'
-import MockGlobal from '@/mock/_global.vue'
+import MockGlobal from '@/mock'
 
 Vue.config.productionTip = false
 Vue.prototype.$eventBus = new Vue()
