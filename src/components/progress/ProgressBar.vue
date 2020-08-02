@@ -2,11 +2,10 @@
   <nav class="progress">
     <div class="nav-wrapper">
       <div class="nav-item" v-for="(item, index) of hintList" :key="index">
-        <span class="dot" 
-              @click="handleJumpPage(index)"></span>
-        <div class="hint">{{item}}</div>
+        <span class="dot" @click="handleJumpPage(index)"></span>
+        <div :class="['hint', { hover: showCurLint && index === curIndex }]">{{item}}</div>
       </div>
-      <div class="nav-dot" :style="pos"></div>
+      <div class="nav-dot" :style="pos" @mouseenter="showCurLint = true" @mouseleave="showCurLint = false"></div>
     </div>
   </nav>
 </template>
@@ -14,34 +13,35 @@
 import { mapState } from 'vuex';
 export default {
   name: 'ProgressBar',
-  data () {
+  data() {
     return {
       hintList: ['主页', '自我介绍', '技能', '项目'],
-      timer: null
-    }
+      timer: null,
+      showCurLint: false
+    };
   },
   methods: {
-    handleJumpPage (index) {
+    handleJumpPage(index) {
       clearTimeout(this.timer);
       if (!this.transitionEnd) return;
       this.timer = setTimeout(() => {
         this.$store.commit('changeTranEnd', false);
         this.$store.commit('changeIndex', index);
       }, 100);
-    }
+    },
   },
   computed: {
     ...mapState(['curIndex', 'transitionEnd']),
-    pos () {
+    pos() {
       return {
-        transform: `translateY(${ this.curIndex * 45 }px)`
-      }
-    }
-  }
-}
+        transform: `translateY(${this.curIndex * 45}px)`,
+      };
+    },
+  },
+};
 </script>
 <style scoped lang="less">
-@hintActColor: rgba(0, 0, 0, .7);
+@hintActColor: rgba(0, 0, 0, 0.7);
 @itemWidth: 30px;
 @itemHeight: 30px;
 .progress {
@@ -50,7 +50,7 @@ export default {
   top: 0;
   width: 100px;
   height: 100%;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,7 +72,7 @@ export default {
         border-radius: 20px;
         margin: 15px;
         background: rgba(0, 0, 0, 0.1);
-        transition: all .3s ease-out;
+        transition: all 0.3s ease-out;
         cursor: pointer;
         &:hover + .hint {
           transform: translateX(-50px);
@@ -87,12 +87,17 @@ export default {
         border-radius: 2px;
         opacity: 0;
         background: #fff;
-        transition: all .6s;
+        transition: all 0.6s;
         white-space: nowrap;
         font-weight: 600;
         text-align: center;
-        color: #000;
-        box-shadow: 0 0 4px rgba(0, 0, 0, .15);
+        color: rgba(0, 0, 0, .75);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+
+        &.hover {
+          transform: translateX(-50px);
+          opacity: 1;
+        }
       }
     }
     .nav-dot {
@@ -105,18 +110,21 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform .6s cubic-bezier(0.24,-0.98, 0.7, 1.01);
+      transition: transform 0.6s cubic-bezier(0.24, -0.98, 0.7, 1.01);
       &:after {
         content: '';
         display: block;
         width: 20px;
         height: 20px;
         border-radius: 20px;
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, .2);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         background: #fff;
+      }
+      &:hover::after {
+        width: 15px;
+        height: 15px;
       }
     }
   }
-  
 }
 </style>
