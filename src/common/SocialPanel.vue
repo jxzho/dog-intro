@@ -67,7 +67,7 @@
           <p class="motto" v-show="curIndex == index + 1">{{ item }}</p>
         </transition>
       </template>
-      <button class="to-right" @click="handleChangeMo">&#xe608;</button>
+      <!-- <button class="to-right" @click="handleChangeMo">&#xe608;</button> -->
     </div>
 
     <note></note>
@@ -90,12 +90,20 @@ export default {
       curIndex: 1,
     };
   },
+  mounted () {
+    const showBrief = () => {
+      setTimeout(() => {
+        this.handleChangeMo()
+        showBrief()
+      }, 2000)
+    }
+    showBrief()
+  },
   methods: {
     handleChangeMo() {
       this.curIndex = ++this.curIndex > this.mottoes.length ? 1 : this.curIndex;
     },
     handleMosEnter(e) {
-      console.log('e', e);
       document.querySelector(".nav-bar").style.transform = `translateX(${e
         .target.offsetLeft - 5}px)`;
     },

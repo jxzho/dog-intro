@@ -57,6 +57,9 @@
   nav.progress {
     display: none !important;;
   }
+  .icp-info-cont {
+    display: none !important;
+  }
 }
 
 /* iphone6p 7p 8p */
