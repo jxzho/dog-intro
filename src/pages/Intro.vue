@@ -33,12 +33,13 @@
 
 <script>
 export default {
+  name: 'Intro',
+  label: '自我介绍',
   data () {
     return {
       oRo: { ...this.$global }
     }
   },
-  name: 'Intro'
 }
 </script>
 

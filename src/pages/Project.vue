@@ -52,6 +52,8 @@
 
 <script>
 export default {
+  name: 'Project',
+  label: '项目',
   data () {
     return {
       titleColor: {
@@ -87,7 +89,6 @@ export default {
       viewerUrl: ''
     }
   },
-  name: 'Project',
   methods: {
     handleChangeSHIndex (index) {
       this.showHideIndex = this.showHideIndex === index ? -1 : index;

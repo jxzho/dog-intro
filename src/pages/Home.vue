@@ -9,7 +9,7 @@
       </transition>
     </div>
     <h2 class="name">{{ oRo.Home.myName }}</h2>
-    <social />
+    <SocialPanel />
     <ICP />
   </div>
 </template>
@@ -17,6 +17,7 @@
 <script>
 export default {
   name: 'Home',
+  label: '主页',
   data() {
     return {
       dialogueShow: false,

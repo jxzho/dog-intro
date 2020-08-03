@@ -15,12 +15,13 @@
 
 <script>
 export default {
+  name: 'Skill',
+  label: '技能',
   data () {
     return {
       oRo: { ...this.$global }
     }
   },
-  name: 'Skill',
 }
 </script>
 
