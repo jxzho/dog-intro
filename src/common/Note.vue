@@ -2,11 +2,11 @@
   <div class="note-panel" ref="note-panel">
     <ul class="note-list">
       <li class="note-item">
-        <p class="message">今天天气不错</p>
+        <p class="message">WE PERSEVERE</p>
         <span class="time">{{ new Date('2018-2-12') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
-        <p class="message">node好难</p>
+        <p class="message">Cat is best!</p>
         <span class="time">{{ new Date('2018-3-11') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
@@ -32,6 +32,11 @@ export default {
 </script>
 
 <style scoped lang="less">
+.text () {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
 .note-panel {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -51,15 +56,11 @@ export default {
       
       .message {
         flex: 1;
-        font-size: 12px;
-        font-weight: 100;
-        letter-spacing: 1px;
+        .text ();
       }
 
       .time {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 100;
+        .text ();
       }
     }
   }

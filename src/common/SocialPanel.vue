@@ -339,7 +339,7 @@ export default {
     .motto {
       position: absolute;
       font-size: 12px;
-      font-weight: 100;
+      font-weight: 500;
     }
   }
 }
