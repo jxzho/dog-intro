@@ -1,9 +1,11 @@
 <template>
   <nav class="progress">
     <div class="nav-wrapper">
-      <div class="nav-item" v-for="(item, index) of hintList" :key="index">
+      <div class="nav-item" v-for="(item, index) of pagesInfo" :key="index">
         <span class="dot" @click="handleJumpPage(index)"></span>
-        <div :class="['hint', { hover: showCurLint && index === curIndex }]">{{item}}</div>
+        <div :class="['hint', { hover: showCurLint && index === curIndex }]">
+          {{ item.label || 'HI' }}
+        </div>
       </div>
       <div class="nav-dot" :style="pos" @mouseenter="showCurLint = true" @mouseleave="showCurLint = false"></div>
     </div>
@@ -15,8 +17,7 @@ export default {
   name: 'ProgressBar',
   data() {
     return {
-      hintList: ['主页', '自我介绍', '技能', '项目'],
-      timer: null,
+      pagesInfo: global.pages,
       showCurLint: false
     };
   },

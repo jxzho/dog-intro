@@ -1,53 +1,51 @@
 <template>
-  <div class="container" 
-       ref="container"
-       @mousewheel="handleMouseWheel">
-    <home class="page"
-          :class="{
+  <div class="container" ref="container" @mousewheel="handleMouseWheel">
+    <Home :class="['page', {
             prePage: curIndex > 0,
             curPage: curIndex === 0,
             nextPage: curIndex < 0
-          }" 
-          @transitionend.native="handleTranEnd"></home>
-    <intro class="page"
-          :class="{
+          }]"
+          @transitionend.native="handleTranEnd" />
+    <Intro :class="['page', {
             prePage: curIndex > 1,
             curPage: curIndex === 1,
             nextPage: curIndex < 1
-          }" 
-           @transitionend.native="handleTranEnd"></intro>
-    <skill class="page"
-           :class="{
-              prePage: curIndex > 2,
-              curPage: curIndex === 2,
-              nextPage: curIndex < 2
-            }"  
-           @transitionend.native="handleTranEnd"></skill>
-    <project class="page"
-            :class="{
+          }]"
+          @transitionend.native="handleTranEnd" />
+    <Skill :class="['page', {
+            prePage: curIndex > 2,
+            curPage: curIndex === 2,
+            nextPage: curIndex < 2
+          }]" 
+          @transitionend.native="handleTranEnd" />
+    <Project :class="['page', {
               prePage: curIndex > 3,
               curPage: curIndex === 3,
               nextPage: curIndex < 3
-            }" 
-             @transitionend.native="handleTranEnd"></project>
-    <progress-bar></progress-bar>
+            }]"
+            @transitionend.native="handleTranEnd" />
+    <!-- <Test :class="['page', {
+            prePage: curIndex > 4,
+            curPage: curIndex === 4,
+            nextPage: curIndex < 4
+          }]"
+          @transitionend.native="handleTranEnd" /> -->
+    <ProgressBar />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 export default {
-  name: "app",
+  name: "App",
   data () {
     return {
-      timer: null,
-      pageList: []
+      pageSize: global.pages.length || 0,
     }
   },
   methods: {
     handleTranEnd () {
       this.$store.commit('changeTranEnd', true);
-
       clearTimeout(this.timer);
       this.timer = null;
     },
@@ -56,7 +54,7 @@ export default {
       clearTimeout(this.timer);
       this.timer = null;
 
-      if ( (e.wheelDelta < 0 && this.curIndex === 3 ) || 
+      if ( (e.wheelDelta < 0 && this.curIndex === this.pageSize - 1 ) || 
         (e.wheelDelta > 0) && this.curIndex === 0) return;
 
       if (!this.transitionEnd) return;
