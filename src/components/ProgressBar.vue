@@ -11,6 +11,7 @@
     </div>
   </nav>
 </template>
+
 <script>
 import { mapState } from 'vuex';
 export default {
@@ -21,6 +22,22 @@ export default {
       showCurLint: false
     };
   },
+  computed: {
+    ...mapState(['curIndex', 'transitionEnd']),
+    pos() {
+      return {
+        transform: `translateY(${this.curIndex * 45}px)`,
+      };
+    },
+  },
+  watch: {
+    curIndex: {
+      handler (index) {
+        document.title = `Junxio's ${global.pages[index].label}`
+      },
+      immediate: true
+    }
+  },
   methods: {
     handleJumpPage(index) {
       clearTimeout(this.timer);
@@ -29,14 +46,6 @@ export default {
         this.$store.commit('changeTranEnd', false);
         this.$store.commit('changeIndex', index);
       }, 100);
-    },
-  },
-  computed: {
-    ...mapState(['curIndex', 'transitionEnd']),
-    pos() {
-      return {
-        transform: `translateY(${this.curIndex * 45}px)`,
-      };
     },
   },
 };
