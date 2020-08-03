@@ -8,8 +8,8 @@ const requireComponent = require.context(
   '../', true, /\.vue$/
 )
 
-requireComponent.keys().slice(1).forEach(fileName => {
-  if (fileName.match('./common') || fileName.match('./components')) {
+requireComponent.keys().forEach(fileName => {
+  if (fileName.match(/\/(common|components|pages)/g)) {
     const componentConfig = requireComponent(fileName)
     const componentName = capitalizeFirstLetter(
       /([^/]+)\.vue$/.exec(fileName)[1]
