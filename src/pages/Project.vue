@@ -53,7 +53,10 @@
 <script>
 export default {
   name: 'Project',
-  label: '项目',
+  meta: {
+    label: '项目',
+    page: 4
+  },
   data () {
     return {
       titleColor: {

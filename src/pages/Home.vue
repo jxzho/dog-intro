@@ -17,7 +17,10 @@
 <script>
 export default {
   name: 'Home',
-  label: '主页',
+  meta: {
+    label: '主页',
+    page: 1
+  },
   data() {
     return {
       dialogueShow: false,

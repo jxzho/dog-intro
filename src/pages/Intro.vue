@@ -34,7 +34,10 @@
 <script>
 export default {
   name: 'Intro',
-  label: '自我介绍',
+  meta: {
+    label: '自我介绍',
+    page: 2
+  },
   data () {
     return {
       oRo: { ...this.$global }

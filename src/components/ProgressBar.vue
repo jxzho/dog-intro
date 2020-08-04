@@ -18,7 +18,7 @@ export default {
   name: 'ProgressBar',
   data() {
     return {
-      pagesInfo: global.pages,
+      pagesInfo: global.pages.sort((cur, next) => cur.page - next.page),
       showCurLint: false
     };
   },

@@ -16,7 +16,10 @@
 <script>
 export default {
   name: 'Skill',
-  label: '技能',
+  meta: {
+    label: '技能',
+    page: 3
+  },
   data () {
     return {
       oRo: { ...this.$global }
