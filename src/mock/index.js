@@ -5,5 +5,4 @@ pages.keys().forEach(key => {
   const { name, label, page } = (cur.default || cur).meta
   global.pages.push({ name, label, page }) 
 })
-console.log(global.pages);
 global.githubUsername = 'jxzho'
