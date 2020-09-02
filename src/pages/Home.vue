@@ -84,7 +84,6 @@ export default {
     margin: 40px 0;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.7);
-    font-weight: 600;
   }
 }
 
