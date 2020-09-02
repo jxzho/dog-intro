@@ -17,7 +17,6 @@ export default {
 .title {
   font-size: @fontSize;
   line-height: @fontSize;
-  font-weight: 600;
   color: @grey;
   text-shadow: 2px 1px 8px rgba(0, 0, 0, .3)
 }
