@@ -4,9 +4,20 @@
 .x_link {
   transition: .3s ease;
 
+  &.dark {
+    color: rgba(0, 0, 0, .4);
+  }
+  &.light {
+    color: #f5f5f5;
+  }
+
   &:hover {
     text-decoration: underline;
     color: @blue !important;
+  }
+  &.light:hover {
+    text-decoration: underline;
+    color: #f5f5f5 !important;
   }
 
   &.left:hover {

@@ -1,11 +1,11 @@
 <template>
-  <div class="icp-info-cont" v-if="show">
+  <div class="icp-info-cont" v-if="!isMobile">
     <a :href="sourceUrl" target="_blank">
-      <span class="source x_link left">Source</span>
+      <span :class="`source x_link left ${type}`">Source</span>
     </a>
-    <em class="separator">&#124;</em>
+    <em :class="`separator x_link ${type}`">&#124;</em>
     <a :href="recordUrl" target="_blank">
-      <p class="record x_link right">粤&nbsp;ICP&nbsp;备{{ icp }}号</p>
+      <p :class="`record x_link right ${type}`">粤&nbsp;ICP&nbsp;备{{ icp }}号</p>
     </a>
   </div>
 </template>
@@ -13,6 +13,12 @@
 <script>
 export default {
   name: 'IcpInfo',
+  props: {
+    type: {
+      type: String,
+      default: 'dark'
+    }
+  },
   data () {
     return {
       sourceUrl: `https://github.com/${githubUsername}/junxio.com`,
@@ -29,35 +35,22 @@ export default {
       this.isMobile = /Mobile/.test(navigator.userAgent)
     }
   },
-  computed: {
-    show () {
-      return !this.isMobile
-    }
-  }
 }
 </script>
 
 <style lang="less" scoped>
-@footerColor: rgba(0, 0, 0, .4);
 .icp-info-cont {
   position: absolute;
   bottom: 20px;
   display: flex;
   font-size: 11px;
-  color: rgba(0, 0, 0, .3);
   
   .source {
     display: inline-block;
-    color: @footerColor;
   }
 
   .separator {
     margin: 0 10px;
-    color: @footerColor;
-  }
-
-  .record {
-    color: @footerColor;
   }
 }
 </style>
