@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       pagesInfo: global.pages.sort((cur, next) => cur.page - next.page),
-      showCurLint: false
+      showCurLint: false,
     };
   },
   computed: {
@@ -32,11 +32,25 @@ export default {
   },
   watch: {
     curIndex: {
-      handler (index) {
-        document.title = `Junxio's ${global.pages[index].label}`
+      handler(index) {
+        document.title = `Junxio's ${global.pages[index].label}`;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
+  },
+  created() {
+    const doc = document.body || document.documentElement
+    doc.addEventListener('keyup', (e) => {
+      clearInterval(this._keyActionTimer)
+      const pageNum = global.pages.length
+
+      const key = e.keyCode || e.which
+      // 38 up. 40 down
+      this._keyActionTimer = setTimeout(() => {
+        if (key === 38 && this.curIndex !== 0) this.$store.commit('changeIndex', this.curIndex - 1);
+        if (key === 40 && this.curIndex !== pageNum - 1) this.$store.commit('changeIndex', this.curIndex + 1);
+      }, 200);
+    })
   },
   methods: {
     handleJumpPage(index) {
@@ -99,9 +113,8 @@ export default {
         background: #fff;
         transition: all 0.6s;
         white-space: nowrap;
-        font-weight: 600;
         text-align: center;
-        color: rgba(0, 0, 0, .75);
+        color: rgba(0, 0, 0, 0.75);
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
 
         &.hover {
