@@ -1,13 +1,16 @@
+<!--
 <template>
   <h1 class="title">{{title}}</h1>
 </template>
-
+-->
 <script>
 export default {
-  props:{
-    title: String 
-  },
-  name: 'PageTitle'
+  name: 'PageTitle',
+  render (h) {
+    return h('h1', {
+      class: 'title'
+    }, this.$slots.default)
+  }
 }
 </script>
 
