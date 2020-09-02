@@ -1,6 +1,6 @@
 <template>
   <div class="skill">
-    <page-title :title="oRo.Skill.pageTitle"></page-title>
+    <page-title>{{ oRo.Skill.pageTitle }}</page-title>
     <dial class="dial"></dial>
     <my-switch></my-switch>
 

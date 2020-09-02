@@ -1,6 +1,6 @@
 <template>
   <div class="intro">
-    <page-title :title="oRo.Introduce.pageTitle"></page-title>
+    <page-title>{{ oRo.Introduce.pageTitle }}</page-title>
     <div class="brief">{{ oRo.Introduce.brief }}</div>
     <div class="person-info">
       <div class="person-info-item">

@@ -71,6 +71,9 @@
           text: 'less'
         }
       ]
+    },
+    Project: {
+      pageTitle: '项目',
     }
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="project">
-    <page-title title="项目" :style="titleColor"></page-title>
+  <div class="project"> 
+    <page-title :style="titleColor">{{ oRo.Project.pageTitle }}</page-title>
     <div class="project-panel">
       <ul class="project-list" ref="container">
         <li class="project-item" v-for="(item, index) of projects" :key="index">
@@ -89,7 +89,8 @@ export default {
       showHideIndex: -1,
       showIndex: -1,
       captureIndex: -1,
-      viewerUrl: ''
+      viewerUrl: '',
+      oRo: { ...this.$global }
     }
   },
   methods: {
