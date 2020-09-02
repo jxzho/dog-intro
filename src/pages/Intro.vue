@@ -28,6 +28,8 @@
         <span class="state">{{ oRo.Introduce.major.text }}</span>
       </div>
     </div>
+
+    <ICP type="light" />
   </div>
 </template>
 

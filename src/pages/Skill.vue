@@ -10,6 +10,8 @@
         <span>{{ item.text }}</span>
       </div>
     </div>
+
+    <ICP type="light" />
   </div>
 </template>
 
