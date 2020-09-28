@@ -2,13 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from '@/store'
 
-import '@/assets/styles'
-
-import './plugins'
-import '@/mock/index.js'
+import '@/modules/init'
+import '@/plugins'
 import MockGlobal from '@/mock/index.vue'
 
+import '@/assets/styles'
+
 Vue.config.productionTip = false
+
 Vue.prototype.$eventBus = new Vue()
 Vue.prototype.$global = MockGlobal
 
