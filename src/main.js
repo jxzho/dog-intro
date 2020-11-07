@@ -8,6 +8,9 @@ import MockGlobal from '@/mock/index.vue'
 
 import '@/assets/styles'
 
+import VueCompositionAPI from '@vue/composition-api'
+Vue.use(VueCompositionAPI)
+
 Vue.config.productionTip = false
 
 Vue.prototype.$eventBus = new Vue()
