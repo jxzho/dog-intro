@@ -3,6 +3,7 @@ import App from './App.vue'
 import store from '@/store'
 
 import '@/modules/init'
+import '@/modules/config'
 import '@/plugins'
 import MockGlobal from '@/mock/index.vue'
 
