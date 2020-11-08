@@ -8,3 +8,4 @@ pages.keys().forEach(key => {
 })
 
 global.githubUsername = 'jxzho'
+global.inMobile = /Mobile/.test(window.navigator.userAgent)
