@@ -25,7 +25,13 @@ const mutations = {
   }
 };
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state,
   mutations
-});
+})
+
+export default store;
+
+export function useStore () {
+  return store
+}
