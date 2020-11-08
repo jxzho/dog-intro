@@ -16,15 +16,19 @@
 </template>
 
 <script>
+import { getCurrentInstance } from '@vue/composition-api'
+
+const meta = {
+  label: '技能',
+  page: 3
+}
+
 export default {
   name: 'Skill',
-  meta: {
-    label: '技能',
-    page: 3
-  },
-  data () {
+  meta,
+  setup () {
     return {
-      oRo: { ...this.$global }
+      oRo: getCurrentInstance().$global
     }
   },
 }

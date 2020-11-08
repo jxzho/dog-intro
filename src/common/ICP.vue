@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { ref, watchEffect } from '@vue/composition-api'
+
 export default {
   name: 'IcpInfo',
   props: {
@@ -19,20 +21,12 @@ export default {
       default: 'dark'
     }
   },
-  data () {
+  setup () {
     return {
       sourceUrl: `https://github.com/${githubUsername}/junxio.com`,
       recordUrl: 'http://www.beian.miit.gov.cn',
       icp: 20001943,
-      isMobile: false
-    }
-  },
-  created () {
-    this.init()
-  },
-  methods: {
-    init () {
-      this.isMobile = /Mobile/.test(navigator.userAgent)
+      isMobile: inMobile
     }
   },
 }

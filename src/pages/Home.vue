@@ -15,16 +15,20 @@
 </template>
 
 <script>
+import { ref, getCurrentInstance } from '@vue/composition-api'
+
 export default {
   name: 'Home',
   meta: {
     label: '主页',
     page: 1
   },
-  data() {
+  setup () {
+    const instance = getCurrentInstance()
+
     return {
-      dialogueShow: false,
-      oRo: { ...this.$global }
+      oRo: instance.$global,
+      dialogueShow: ref(false)
     }
   }
 }

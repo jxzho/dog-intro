@@ -62,7 +62,7 @@
 
     <div class="brief">
       <i class="trigon" />
-      <template v-for="(item, index) of mottoes">
+      <template v-for="(item, index) of MOTTOES">
         <transition :key="`trigon-tran-${index}`">
           <p class="motto" v-show="curIndex == index + 1">{{ item }}</p>
         </transition>
@@ -75,38 +75,46 @@
 </template>
 
 <script>
+import { ref, onMounted, unref } from '@vue/composition-api'
+
+const MOTTOES = [
+  "求知若饥，虚心若愚",
+  "永远不要放弃",
+  "保持热情",
+  "坚持",
+  "你好，我是钟俊雄",
+]
+
 export default {
   name: "Social",
-  data() {
-    return {
-      timer: null,
-      mottoes: [
-        "求知若饥，虚心若愚",
-        "永远不要放弃",
-        "保持热情",
-        "坚持",
-        "你好，我是钟俊雄",
-      ],
-      curIndex: 1,
-    };
-  },
-  mounted () {
+  setup () {
+    const curIndexRef = ref(1)
+
     const showBrief = () => {
       setTimeout(() => {
-        this.handleChangeMo()
+        handleChangeMo()
         showBrief()
       }, 2000)
     }
-    showBrief()
-  },
-  methods: {
-    handleChangeMo() {
-      this.curIndex = ++this.curIndex > this.mottoes.length ? 1 : this.curIndex;
-    },
-    handleMosEnter(e) {
+
+    onMounted(showBrief)
+
+    function handleChangeMo() {
+      let curIndex = unref(curIndexRef)
+      curIndexRef.value = ++curIndex > MOTTOES.length ? 1 : curIndex;
+    }
+
+    function handleMosEnter(e) {
       document.querySelector(".nav-bar").style.transform = `translateX(${e
         .target.offsetLeft - 5}px)`;
-    },
+    }
+
+    return {
+      MOTTOES,
+      curIndex: curIndexRef,
+      handleChangeMo,
+      handleMosEnter
+    };
   },
 };
 </script>

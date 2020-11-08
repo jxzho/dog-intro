@@ -7,7 +7,7 @@
         </transition>
       </template>
     </div>
-    <div class="planet">
+    <div class="planet" ref="planetRef">
       <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" :key="`planet-item-${index}`" @click="handleRotate(index)">
         {{item}}
       </span>
@@ -15,51 +15,66 @@
   </div>
 </template>
 <script>
+import { reactive, ref, onMounted, watchEffect, unref } from '@vue/composition-api'
+
+const name = 'Dial'
+
 export default {
-  data() {
+  name,
+  setup (_, ctx) {
+    const $eventBus = ctx.root.$eventBus
+    const dialDuration = 3000
+    const curIndex = ref(7)
+    const lastIndex = ref(0)
+    const planetRef = ref(null)
+    let playTimer = null
+
+    watchEffect(() => {
+      // 监听switch action
+      $eventBus.$on('onPlay', () => {
+        dialAutoPlay(dialDuration);
+      });
+      $eventBus.$on('offPlay', () => {
+        clearInterval(playTimer);
+        playTimer = null;
+      });
+    })
+
+    function handleRotate(index) {
+      const lastIndexVal = unref(lastIndex)
+      curIndex.value = index;
+
+      if (planetRef) {
+        const planetEle = planetRef.value
+        planetEle.style.transform = `rotate(${ (index - 6) * 45 }deg)`
+
+        Array.apply(null, planetEle.querySelectorAll('.planet >.item')).forEach((item) => {
+          item.style.transform = `rotate(${ -(index - 6) * 45 }deg)`
+        })
+
+        // 清除上一个item激活样式 激活当前item
+        planetEle.querySelectorAll('.planet >.item')[lastIndexVal].classList.remove('actived')
+        planetEle.querySelectorAll('.planet >.item')[index].classList.add('actived');
+
+        lastIndex.value = index;
+      }
+    }
+
+    function dialAutoPlay(intervalTime) {
+      playTimer = setInterval(() => {
+        const curIndexVal = unref(curIndex)
+        handleRotate(curIndexVal);
+        curIndex.value = curIndexVal + 1 > 7 ? 0 : curIndexVal + 1 ;
+      }, dialDuration);
+    }
+
     return {
-      planets: ['JavaScipt', 'HTML', 'CSS', 'Vue', 'jQuery', 'PS', 'Node', 'less'],
-      curIndex: 7,
-      lastIndex: 0,
-      timer: null,
-      dialDuration: 3000
+      planetRef,
+      planets: ['JavaScipt', 'HTML', 'CSS', 'Vue', 'jQuery', 'PS', 'Node', 'Less'],
+      curIndex,
+      lastIndex,
+      handleRotate
     }
-  },
-  name: 'Dial',
-  methods: {
-    handleRotate(index) {
-      this.curIndex = index;
-
-      document.querySelector('.planet').style.transform = `rotate(${ (index - 6) * 45 }deg)`
-      Array.from(document.querySelectorAll('.planet >.item')).forEach((item) => {
-        item.style.transform = `rotate(${ -(index - 6) * 45 }deg)`
-      })
-
-      // 清除上一个item激活样式 激活当前item
-      document.querySelectorAll('.planet >.item')[this.lastIndex].classList.remove('actived')
-      document.querySelectorAll('.planet >.item')[index].classList.add('actived');
-
-      this.lastIndex = index;
-    },
-    dialAutoPlay(intervalTime) {
-      this.timer = setInterval(() => {
-        this.handleRotate(this.curIndex);
-        this.curIndex = this.curIndex + 1 > 7 ? 0 : this.curIndex + 1 ;
-      }, this.dialDuration);
-    }
-  },
-  mounted() {
-    // this.dialAutoPlay(this.dialDuration);
-  },
-  created () {
-    // 监听switch action
-    this.$eventBus.$on('onPlay', () => {
-      this.dialAutoPlay(this.dialDuration);
-    });
-    this.$eventBus.$on('offPlay', () => {
-      clearInterval(this.timer);
-      this.timer = null;
-    });
   }
 }
 </script>

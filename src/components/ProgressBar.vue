@@ -13,54 +13,64 @@
 </template>
 
 <script>
+import { computed, watch, unref, watchEffect } from '@vue/composition-api'
 import { mapState } from 'vuex';
-export default {
-  name: 'ProgressBar',
-  data() {
-    return {
-      pagesInfo: global.pages.sort((cur, next) => cur.page - next.page),
-      showCurLint: false,
-    };
-  },
-  computed: {
-    ...mapState(['curIndex', 'transitionEnd']),
-    pos() {
-      return {
-        transform: `translateY(${this.curIndex * 45}px)`,
-      };
-    },
-  },
-  watch: {
-    curIndex: {
-      handler(index) {
-        document.title = `Junxio's ${global.pages[index].label}`;
-      },
-      immediate: true,
-    },
-  },
-  created() {
-    const doc = document.body || document.documentElement
-    doc.addEventListener('keyup', (e) => {
-      clearInterval(this._keyActionTimer)
-      const pageNum = global.pages.length
 
-      const key = e.keyCode || e.which
-      // 38 up. 40 down
-      this._keyActionTimer = setTimeout(() => {
-        if (key === 38 && this.curIndex !== 0) this.$store.commit('changeIndex', this.curIndex - 1);
-        if (key === 40 && this.curIndex !== pageNum - 1) this.$store.commit('changeIndex', this.curIndex + 1);
-      }, 200);
+const name = 'ProgressBar'
+
+export default {
+  name,
+  setup (_, ctx) {
+    const store = ctx.root.$store
+    const curIndex = computed(() => store.state.curIndex)
+    const transitionEnd = computed(() => store.state.transitionEnd)
+    const pos = computed(() => ({
+      transform: `translateY(${curIndex.value * 45}px)`,
+    }))
+
+    watchEffect(() => {
+      init()
     })
-  },
-  methods: {
-    handleJumpPage(index) {
+
+    watch(curIndex, (index) => {
+      document.title = `Junxio's ${global.pages[index].label}`;
+    }, {
+      immediate: true
+    })
+
+    function handleJumpPage(index) {
       clearTimeout(this.timer);
       if (!this.transitionEnd) return;
       this.timer = setTimeout(() => {
-        this.$store.commit('changeTranEnd', false);
-        this.$store.commit('changeIndex', index);
+        store.commit('changeTranEnd', false);
+        store.commit('changeIndex', index);
       }, 100);
-    },
+    }
+
+    function init () {
+      const doc = document.body || document.documentElement
+      doc.addEventListener('keyup', (e) => {
+        clearInterval(ctx._keyActionTimer)
+        const pageNum = global.pages.length
+        const curIndexVal = unref(curIndex)
+
+        const key = e.keyCode || e.which
+        // 38 up. 40 down
+        ctx._keyActionTimer = setTimeout(() => {
+          if (key === 38 && curIndexVal !== 0) store.commit('changeIndex', curIndexVal - 1);
+          if (key === 40 && curIndexVal !== pageNum - 1) store.commit('changeIndex', curIndexVal + 1);
+        }, 200);
+      })
+    }
+
+    return {
+      pagesInfo: pages.sort((cur, next) => cur.page - next.page),
+      showCurLint: false,
+      pos,
+      curIndex,
+      transitionEnd,
+      handleJumpPage
+    }
   },
 };
 </script>

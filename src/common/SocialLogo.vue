@@ -1,4 +1,6 @@
 <script>
+import { ref, computed } from '@vue/composition-api'
+
 export default {
   props: {
     name: String,
@@ -9,15 +11,15 @@ export default {
       },
     },
   },
-  data() {
+  setup (props) {
+    const active = ref(false)
     return {
-      active: false,
+      active,
+      color: computed(() => props.colors[+active.value]),
+      activateSocialIcon (val) {
+        active.value = val
+      }
     };
-  },
-  computed: {
-    color() {
-      return this.colors[+this.active];
-    },
   },
   render() {
     const IconSvg = {
@@ -99,13 +101,12 @@ export default {
       },
     };
     const iconName = this.name;
-
     return (
       iconName in IconSvg && (
         <div
           class="icon-wrapper"
-          onMouseenter={() => (this.active = true)}
-          onMouseleave={() => (this.active = false)}
+          onMouseenter={() => this.activateSocialIcon(true)}
+          onMouseleave={() => this.activateSocialIcon(false)}
         >
           <svg
             class="stroke"

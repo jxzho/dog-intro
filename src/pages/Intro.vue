@@ -34,17 +34,19 @@
 </template>
 
 <script>
+import { getCurrentInstance } from '@vue/composition-api'
+
 export default {
   name: 'Intro',
   meta: {
     label: '自我介绍',
     page: 2
   },
-  data () {
+  setup () {
     return {
-      oRo: { ...this.$global }
+      oRo: getCurrentInstance().$global
     }
-  },
+  }
 }
 </script>
 

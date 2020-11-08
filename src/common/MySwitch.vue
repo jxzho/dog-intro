@@ -13,19 +13,29 @@
 </template>
 
 <script>
+import { ref, unref } from '@vue/composition-api'
+
+const name = 'MySwitch'
+
 export default {
-  name: 'MySwitch',
-  data () {
-    return {
-      ifSwitch: false
-    }
-  },
-  methods: {
-    handleSwitchClick () {
-      this.ifSwitch = !this.ifSwitch;
+  name,
+  setup (_, ctx) {
+    const $eventBus = ctx.root.$eventBus
+    const ifSwitch = ref(false)
+
+    function handleSwitchClick () {
+      const switchVal = unref(ifSwitch)
+      const val = !switchVal
+      
+      ifSwitch.value = val;
       // ifSwitch：true 轮盘播放
-      this.ifSwitch && this.$eventBus.$emit('onPlay');
-      this.ifSwitch || this.$eventBus.$emit('offPlay');
+      val && $eventBus.$emit('onPlay');
+      val || $eventBus.$emit('offPlay');
+    }
+
+    return {
+      ifSwitch,
+      handleSwitchClick
     }
   }
 }

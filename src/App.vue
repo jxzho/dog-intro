@@ -35,43 +35,50 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { reactive, toRefs, computed, unref } from '@vue/composition-api'
+
 export default {
   name: "App",
-  data () {
-    return {
-      pageSize: global.pages.length || 0,
+  setup (_, ctx) {
+    const store = ctx.root.$store
+    const state = reactive({
+      curIndex: computed(() => store.state.curIndex),
+      transitionEnd: computed(() => store.state.transitionEnd)
+    })
+
+    const changeIndex = index => store.commit('changeIndex', index)
+
+    function handleTranEnd () {
+      store.commit('changeTranEnd', true);
+      clearTimeout(this.timer);
+      this.timer = null;
     }
-  },
-  methods: {
-    handleTranEnd () {
-      this.$store.commit('changeTranEnd', true);
+
+    function handleMouseWheel (e) {
       clearTimeout(this.timer);
-      this.timer = null;
-    },
-    handleMouseWheel (e) {
+      const { curIndex, transitionEnd } = state
+
       // wheelDelta > 0 up or wheelDelta < 0 down
-      clearTimeout(this.timer);
-      this.timer = null;
+      if ( (e.wheelDelta < 0 && curIndex === this.pageSize - 1 ) || 
+        (e.wheelDelta > 0) && curIndex === 0) return;
 
-      if ( (e.wheelDelta < 0 && this.curIndex === this.pageSize - 1 ) || 
-        (e.wheelDelta > 0) && this.curIndex === 0) return;
-
-      if (!this.transitionEnd) return;
+      if (!transitionEnd) return;
 
       this.timer = setTimeout(() => {
-        this.$store.commit('changeTranEnd', false);
+        store.commit('changeTranEnd', false);
         e.wheelDelta < 0 
-          ? this.changeIndex(this.curIndex + 1) 
-          : this.changeIndex(this.curIndex - 1) ;
+          ? this.changeIndex(curIndex + 1) 
+          : this.changeIndex(curIndex - 1) ;
       }, 100);
-    },
-    changeIndex (index) {
-      this.$store.commit('changeIndex', index);
     }
-  },
-  computed: {
-    ...mapState(['curIndex', 'transitionEnd'])
+
+    return {
+      pageSize: global.pages.length || 0,
+      ...toRefs(state),
+      handleTranEnd,
+      handleMouseWheel,
+      changeIndex,
+    }
   }
 };
 </script>

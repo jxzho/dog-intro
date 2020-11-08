@@ -1,25 +1,31 @@
 <template>
   <transition name="viewer">
-    <div class="viewer" 
-       v-show="ifShowViewer"
-       @click="handleCloseViewer">
+    <div
+      v-if="url"
+      class="viewer"
+      v-show="ifShowViewer"
+      @click="handleCloseViewer">
       <img class="image" :src="url">
     </div>  
   </transition>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { computed } from '@vue/composition-api'
+
 export default {
   name: 'Viewer',
-  methods: {
-    handleCloseViewer () {
-      this.$store.commit('hideViewer');
+  setup (_, ctx) {
+    const store = ctx.root.$store
+
+    return {
+      ifShowViewer: computed(() => store.state.ifShowViewer),
+      url: computed(() => store.state.url),
+      handleCloseViewer () {
+        store.commit('hideViewer')
+      }
     }
   },
-  computed: {
-    ...mapState(['ifShowViewer', 'url'])
-  }
 }
 </script>
 
