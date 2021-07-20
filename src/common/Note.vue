@@ -2,19 +2,19 @@
   <div class="note-panel" ref="note-panel">
     <ul class="note-list">
       <li class="note-item">
-        <p class="message">WE PERSEVERE</p>
+        <p class="message">Run 4ever</p>
         <span class="time">{{ new Date('2020-08-02') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
-        <p class="message">Cat is best!</p>
+        <p class="message">Nothing:D</p>
         <span class="time">{{ new Date('2018-08-01') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
-        <p class="message">快毕业了</p>
+        <p class="message">Alarm</p>
         <span class="time">{{ new Date('2018-6-12') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
       <li class="note-item">
-        <p class="message">安排</p>
+        <p class="message">up up</p>
         <span class="time">{{ new Date('2018-12-25') | dateFormat('yyyy.MM.dd') }}</span>
       </li>
     </ul>
