@@ -37,7 +37,7 @@
 export default {
   name: 'Intro',
   meta: {
-    label: '自我介绍',
+    label: '关于我的',
     page: 2
   },
   data () {

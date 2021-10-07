@@ -6,7 +6,7 @@
 
     <div class="skill-panel">
       <div class="skill-item" v-for="item of oRo.Skill.list" :key="item.text">
-        <img :src="item.iconUrl">
+        <img class="icon" :src="item.iconUrl">
         <span>{{ item.text }}</span>
       </div>
     </div>

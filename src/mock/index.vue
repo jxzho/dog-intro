@@ -8,7 +8,7 @@
       greeting: 'Hi，很高兴遇到你~'
     },
     Introduce: {
-      pageTitle: '自我介绍',
+      pageTitle: '关于我的',
       brief: '热爱前端，熟悉JavaScript、Vue、React、TypeScript等',
       birth: {
         iconUrl: `${cdnDomain}/info/cake.svg`,
