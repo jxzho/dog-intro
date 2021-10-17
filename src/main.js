@@ -4,14 +4,14 @@ import store from '@/store'
 
 import '@/modules/init'
 import '@/plugins'
-import MockGlobal from '@/mock/index.vue'
+import { pageData } from '@/mock/index'
 
 import '@/assets/styles'
 
 Vue.config.productionTip = false
 
 Vue.prototype.$eventBus = new Vue()
-Vue.prototype.$global = MockGlobal
+Vue.prototype.$global = pageData
 
 new Vue({
   store,

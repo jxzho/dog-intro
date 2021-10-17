@@ -76,21 +76,15 @@
 
 <script>
 export default {
-  name: "Social",
+  name: 'Social',
   data() {
     return {
       timer: null,
-      mottoes: [
-        "求知若饥，虚心若愚",
-        "永远不要放弃",
-        "保持热情",
-        "坚持",
-        "你好，我是钟俊雄",
-      ],
+      mottoes: ['Keep Moving', '保持热情', '永远不要放弃', '坚持', '你好，我是钟俊雄'],
       curIndex: 1,
-    };
+    }
   },
-  mounted () {
+  mounted() {
     const showBrief = () => {
       setTimeout(() => {
         this.handleChangeMo()
@@ -101,14 +95,13 @@ export default {
   },
   methods: {
     handleChangeMo() {
-      this.curIndex = ++this.curIndex > this.mottoes.length ? 1 : this.curIndex;
+      this.curIndex = ++this.curIndex > this.mottoes.length ? 1 : this.curIndex
     },
     handleMosEnter(e) {
-      document.querySelector(".nav-bar").style.transform = `translateX(${e
-        .target.offsetLeft - 5}px)`;
+      document.querySelector('.nav-bar').style.transform = `translateX(${e.target.offsetLeft - 5}px)`
     },
   },
-};
+}
 </script>
 
 <style scoped lang="less">
@@ -173,14 +166,14 @@ export default {
       .switch-btn-left {
         transform: rotate(180deg);
         background: transparent;
-        font-family: "iconfont";
+        font-family: 'iconfont';
         color: #fff;
         cursor: pointer;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       }
       .switch-btn-right {
         background: transparent;
-        font-family: "iconfont";
+        font-family: 'iconfont';
         color: #fff;
         cursor: pointer;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -336,7 +329,7 @@ export default {
       margin-left: -5px;
     }
     .to-right {
-      font-family: "iconfont";
+      font-family: 'iconfont';
       background: transparent;
       color: #fff;
       transform: rotate(180deg);
