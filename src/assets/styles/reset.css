@@ -64,7 +64,6 @@ h4,
 h5,
 h6 {
   font-size: 100%;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   font-weight: bold;
 }
 abbr,
@@ -89,7 +88,7 @@ body {
   background: #fff;
   color: #5e5e5e;
   font-size: 14px;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  font-family: 'mainfont', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 ol,
@@ -154,6 +153,6 @@ a:active {
   overflow: hidden;
   clear: both;
 }
-html{
+html {
   font-size: 100px;
 }
