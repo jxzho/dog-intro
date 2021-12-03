@@ -36,10 +36,11 @@ export default {
   },
   data() {
     const firstIn = !localStorage.getItem('page-home-leaved')
+    const isMobile = navigator.userAgent.match(/Mobile/g)
     return {
       dialogueShow: false,
       oRo: { ...this.$global },
-      iconPointerVisible: firstIn,
+      iconPointerVisible: isMobile && firstIn,
     }
   },
   watch: {
