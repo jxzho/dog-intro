@@ -6,7 +6,7 @@
 
     <div class="skill-panel">
       <div class="skill-item" v-for="item of oRo.Skill.list" :key="item.text">
-        <img class="icon" :src="item.iconUrl">
+        <!-- <img class="icon" :src="item.iconUrl"> -->
         <span>{{ item.text }}</span>
       </div>
     </div>
@@ -20,11 +20,11 @@ export default {
   name: 'Skill',
   meta: {
     label: '技能',
-    page: 3
+    page: 3,
   },
-  data () {
+  data() {
     return {
-      oRo: { ...this.$global }
+      oRo: { ...this.$global },
     }
   },
 }
@@ -47,14 +47,14 @@ export default {
     width: 500px;
     background: #fff;
     display: none;
-    
+
     .skill-item {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       margin: 28px 0;
-      color: rgba(0, 0, 0, .8);
+      color: rgba(0, 0, 0, 0.8);
       font-size: 16px;
     }
   }

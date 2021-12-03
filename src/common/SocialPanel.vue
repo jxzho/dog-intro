@@ -179,6 +179,7 @@ export default {
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       }
     }
+
     .icons-menu {
       padding: 4px 0;
       display: flex;
@@ -188,6 +189,7 @@ export default {
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
       transition: all 0.4s ease;
+
       .icon {
         svg {
           path {
@@ -340,7 +342,7 @@ export default {
     .motto {
       position: absolute;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: normal;
     }
   }
 }

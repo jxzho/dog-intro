@@ -1,30 +1,30 @@
 <template>
   <div class="intro">
     <page-title>{{ oRo.Introduce.pageTitle }}</page-title>
-    <div class="brief">{{ oRo.Introduce.brief }}</div>
+    <div class="brief" v-html="getHTML(oRo.Introduce.brief)" />
     <div class="person-info">
       <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.birth.iconUrl">
+        <img class="state-icon" :src="oRo.Introduce.birth.iconUrl" />
         <span class="state">{{ oRo.Introduce.birth.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.university.iconUrl">
+        <img class="state-icon" :src="oRo.Introduce.university.iconUrl" />
         <span class="state">{{ oRo.Introduce.university.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.home.iconUrl">
+        <img class="state-icon" :src="oRo.Introduce.home.iconUrl" />
         <span class="state">{{ oRo.Introduce.home.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.mail.iconUrl">
+        <img class="state-icon" :src="oRo.Introduce.mail.iconUrl" />
         <span class="state">{{ oRo.Introduce.mail.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.tel.iconUrl">
+        <img class="state-icon" :src="oRo.Introduce.tel.iconUrl" />
         <span class="state">{{ oRo.Introduce.tel.text }}</span>
       </div>
       <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.major.iconUrl">
+        <img class="state-icon" :src="oRo.Introduce.major.iconUrl" />
         <span class="state">{{ oRo.Introduce.major.text }}</span>
       </div>
     </div>
@@ -34,16 +34,24 @@
 </template>
 
 <script>
+const getHTML = string => {
+  const htmlText = string.replace(/(`([a-zA-Z]+)`)/g, '<span class="code">$2</span>')
+  return htmlText
+}
+
 export default {
   name: 'Intro',
   meta: {
     label: '关于我的',
-    page: 2
+    page: 2,
   },
-  data () {
+  data() {
     return {
-      oRo: { ...this.$global }
+      oRo: { ...this.$global },
     }
+  },
+  methods: {
+    getHTML,
   },
 }
 </script>
@@ -69,8 +77,8 @@ export default {
     background: #fff;
     border-radius: 4px;
     font-size: @fontSize;
-    color: rgba(0, 0, 0, .7);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   .person-info {
@@ -82,7 +90,7 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 
     .person-info-item {
@@ -96,12 +104,14 @@ export default {
       .state-icon {
         width: 25px;
         height: 25px;
-      } 
+      }
 
       .state {
+        font-size: 13px;
+        color: #555;
         margin: 8px 0 0 0;
       }
     }
   }
-}  
+}
 </style>

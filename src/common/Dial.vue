@@ -1,12 +1,12 @@
 <template>
   <div class="dial">
-    <div class="center">
+    <!-- <div class="center">
       <template v-for="(item, index) of planets">
         <transition :key="`dial-tran-${index}`">
           <span :class="['item', `item${ index + 1 }`]" v-show="curIndex == index"></span>
         </transition>
       </template>
-    </div>
+    </div> -->
     <div class="planet">
       <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" :key="`planet-item-${index}`" @click="handleRotate(index)">
         {{item}}
@@ -18,56 +18,56 @@
 export default {
   data() {
     return {
-      planets: ['JavaScipt', 'HTML', 'CSS', 'Vue', 'jQuery', 'PS', 'Node', 'less'],
+      planets: ['JavaScipt', 'ES6', 'TypeScript', 'Vue2', 'React', 'Webpack/Rollup', 'Node', 'Jest'],
       curIndex: 7,
       lastIndex: 0,
       timer: null,
-      dialDuration: 3000
+      dialDuration: 3000,
     }
   },
   name: 'Dial',
   methods: {
     handleRotate(index) {
-      this.curIndex = index;
+      this.curIndex = index
 
-      document.querySelector('.planet').style.transform = `rotate(${ (index - 6) * 45 }deg)`
-      Array.from(document.querySelectorAll('.planet >.item')).forEach((item) => {
-        item.style.transform = `rotate(${ -(index - 6) * 45 }deg)`
+      document.querySelector('.planet').style.transform = `rotate(${(index - 6) * 45}deg)`
+      Array.from(document.querySelectorAll('.planet >.item')).forEach(item => {
+        item.style.transform = `rotate(${-(index - 6) * 45}deg)`
       })
 
       // 清除上一个item激活样式 激活当前item
       document.querySelectorAll('.planet >.item')[this.lastIndex].classList.remove('actived')
-      document.querySelectorAll('.planet >.item')[index].classList.add('actived');
+      document.querySelectorAll('.planet >.item')[index].classList.add('actived')
 
-      this.lastIndex = index;
+      this.lastIndex = index
     },
     dialAutoPlay(intervalTime) {
       this.timer = setInterval(() => {
-        this.handleRotate(this.curIndex);
-        this.curIndex = this.curIndex + 1 > 7 ? 0 : this.curIndex + 1 ;
-      }, this.dialDuration);
-    }
+        this.handleRotate(this.curIndex)
+        this.curIndex = this.curIndex + 1 > 7 ? 0 : this.curIndex + 1
+      }, this.dialDuration)
+    },
   },
   mounted() {
     // this.dialAutoPlay(this.dialDuration);
   },
-  created () {
+  created() {
     // 监听switch action
     this.$eventBus.$on('onPlay', () => {
-      this.dialAutoPlay(this.dialDuration);
-    });
+      this.dialAutoPlay(this.dialDuration)
+    })
     this.$eventBus.$on('offPlay', () => {
-      clearInterval(this.timer);
-      this.timer = null;
-    });
-  }
+      clearInterval(this.timer)
+      this.timer = null
+    })
+  },
 }
 </script>
 <style scoped lang="less">
 @Len: unit(250 - 15, px);
 @Lenx: unit(125 - 50, px);
 @Leny: unit(125 - 15, px);
-@activeColor: #44633F;
+@activeColor: #44633f;
 
 .v-enter,
 .v-leave-to {
@@ -77,7 +77,7 @@ export default {
 
 .v-enter-active,
 .v-leave-active {
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .dial {
@@ -110,7 +110,6 @@ export default {
       left: 0;
       top: 0;
     }
-
   }
 
   .planet {
@@ -132,16 +131,17 @@ export default {
 
     .item {
       display: block;
-      width: 100px;
+      min-width: 100px;
+      padding: 0 15px;
       height: 30px;
       border-radius: 4px;
-      transition: all .6s ease;
+      transition: all 0.6s ease;
       position: absolute;
       box-sizing: border-box;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, .4);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
       cursor: pointer;
       text-align: center;
-      color: rgba(0, 0, 0, .7);
+      color: rgba(0, 0, 0, 0.7);
       font-size: 16px;
       line-height: 30px;
       user-select: none;

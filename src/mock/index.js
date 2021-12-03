@@ -8,7 +8,7 @@ export const pageData = {
   },
   Introduce: {
     pageTitle: '关于我的',
-    brief: '热爱前端，熟悉JavaScript、Vue、React、TypeScript等',
+    brief: '热爱前端，熟悉`JavaScript`、`Vue`、`React`、`TypeScript`等',
     birth: {
       iconUrl: `${cdnDomain}/info/cake.svg`,
       text: '1996.02.25',

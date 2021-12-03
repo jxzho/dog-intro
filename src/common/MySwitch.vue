@@ -1,33 +1,31 @@
 <template>
-  <div :class="['switch', {on: ifSwitch, off: !ifSwitch}]">
+  <div :class="['switch', { on: ifSwitch, off: !ifSwitch }]">
     <transition name="off">
       <span class="switch-info off" v-show="!ifSwitch">OFF</span>
     </transition>
     <transition name="on">
       <span class="switch-info on" v-show="ifSwitch">ON</span>
     </transition>
-    <button :class="['switch-btn', {on: ifSwitch, off: !ifSwitch}]" 
-            @click="handleSwitchClick">
-    </button>
+    <button :class="['switch-btn', { on: ifSwitch, off: !ifSwitch }]" @click="handleSwitchClick"></button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'MySwitch',
-  data () {
+  data() {
     return {
-      ifSwitch: false
+      ifSwitch: false,
     }
   },
   methods: {
-    handleSwitchClick () {
-      this.ifSwitch = !this.ifSwitch;
+    handleSwitchClick() {
+      this.ifSwitch = !this.ifSwitch
       // ifSwitch：true 轮盘播放
-      this.ifSwitch && this.$eventBus.$emit('onPlay');
-      this.ifSwitch || this.$eventBus.$emit('offPlay');
-    }
-  }
+      this.ifSwitch && this.$eventBus.$emit('onPlay')
+      this.ifSwitch || this.$eventBus.$emit('offPlay')
+    },
+  },
 }
 </script>
 
@@ -47,7 +45,7 @@ export default {
   align-items: center;
   background: #eee;
   overflow: hidden;
-  transition: 1s cubic-bezier(1, 0.01, 0.21, 0.99) .12s;
+  transition: 1s cubic-bezier(1, 0.01, 0.21, 0.99) 0.12s;
   user-select: none;
   z-index: 3;
   &.on {
@@ -63,7 +61,7 @@ export default {
     line-height: 16px;
     top: 50%;
     margin-top: -8px;
-    font-weight: 800;
+    font-weight: bold;
     &.off {
       right: unit(@btnWidth / 2, px);
     }
@@ -77,9 +75,9 @@ export default {
     border: 4px solid #9c90c2;
     width: @btnWidth;
     height: @btnWidth;
-    border-radius: unit(@btnWidth/2, px);
+    border-radius: unit(@btnWidth / 2, px);
     background: #fff;
-    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all 1s cubic-bezier(1, 0.01, 0.21, 0.99);
     &.on {
@@ -91,10 +89,28 @@ export default {
     }
   }
 }
-.off-enter{opacity: 0;transform: translateX(-30px);} 
-.off-leave-to {opacity: 0;transform: translateX(-30px);}
-.on-enter{opacity: 0;transform: translateX(30px);} 
-.on-leave-to {opacity: 0;transform: translateX(30px)}
-.off-enter-active, .on-enter-active{transition: 1s cubic-bezier(1, 0.01, 0.21, 0.99) .12s;}
-.off-leave-active, .on-leave-active {transition: .1s .5s;}
+.off-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.off-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.on-enter {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.on-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.off-enter-active,
+.on-enter-active {
+  transition: 1s cubic-bezier(1, 0.01, 0.21, 0.99) 0.12s;
+}
+.off-leave-active,
+.on-leave-active {
+  transition: 0.1s 0.5s;
+}
 </style>
