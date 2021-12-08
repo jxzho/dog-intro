@@ -58,7 +58,8 @@ export default {
 @avatarWidth: 150px;
 
 .home {
-  background: @grey;
+  background: linear-gradient(90deg, #ececec 50%, #eee 0);
+  background-size: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;

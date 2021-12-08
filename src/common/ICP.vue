@@ -16,24 +16,24 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'dark'
-    }
+      default: 'dark',
+    },
   },
-  data () {
+  data() {
     return {
       sourceUrl: `https://github.com/${githubUsername}/junxio.com`,
       recordUrl: 'http://www.beian.miit.gov.cn',
       icp: 20001943,
-      isMobile: false
+      isMobile: false,
     }
   },
-  created () {
+  created() {
     this.init()
   },
   methods: {
-    init () {
+    init() {
       this.isMobile = /Mobile/.test(navigator.userAgent)
-    }
+    },
   },
 }
 </script>
@@ -43,8 +43,7 @@ export default {
   position: absolute;
   bottom: 20px;
   display: flex;
-  font-size: 11px;
-  
+
   .source {
     display: inline-block;
   }

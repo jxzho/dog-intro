@@ -75,14 +75,31 @@
 </template>
 
 <script>
+const mottoesDefault = ['Keep Moving', '保持热情', '永远不要放弃', '坚持', '你好，我是钟俊雄']
+
+const getDailySentence = () => {
+  return fetch('https://v1.hitokoto.cn/?encode=json', {
+    method: 'GET',
+  })
+    .then(_ => _.json())
+    .then(res => {
+      return res.hitokoto
+    })
+}
+
 export default {
   name: 'Social',
   data() {
     return {
       timer: null,
-      mottoes: ['Keep Moving', '保持热情', '永远不要放弃', '坚持', '你好，我是钟俊雄'],
+      mottoes: [],
       curIndex: 1,
     }
+  },
+  created() {
+    getDailySentence().then(sentence => {
+      this.mottoes = [sentence].concat(mottoesDefault)
+    })
   },
   mounted() {
     const showBrief = () => {
@@ -310,12 +327,10 @@ export default {
     text-align: center;
     height: 54px;
     color: @grey;
-    letter-spacing: 1px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
 
     .trigon {
       display: block;
@@ -341,7 +356,6 @@ export default {
     }
     .motto {
       position: absolute;
-      font-size: 12px;
       font-weight: normal;
     }
   }

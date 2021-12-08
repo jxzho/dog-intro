@@ -1,8 +1,10 @@
 const cdnDomain = 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static'
 
+const avatarUrl = 'https://static.junxio.com/assets/avatar_me.jpg'
+
 export const pageData = {
   Home: {
-    avatarUrl: `${cdnDomain}/nur.jpg`,
+    avatarUrl,
     myName: '钟俊雄',
     greeting: 'Hi，很高兴遇到你~',
   },

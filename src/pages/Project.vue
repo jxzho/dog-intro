@@ -194,10 +194,9 @@ export default {
 
         .content {
           color: #555;
-          font-size: 15px;
+          font-size: 16px;
           line-height: 20px;
           margin-top: 18px;
-          letter-spacing: 0.1em;
         }
 
         .detail {
@@ -218,7 +217,6 @@ export default {
             list-style: disc;
             font-size: 16px;
             line-height: 16px;
-            letter-spacing: 0.2em;
             padding: 0.2em 0;
           }
         }

@@ -5,6 +5,7 @@ import store from '@/store'
 import '@/modules/init'
 import '@/plugins'
 import { pageData } from '@/mock/index'
+import { isMobile } from '@/utils'
 
 import '@/assets/styles'
 
@@ -22,7 +23,7 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-if (isDev) {
+if (isDev && isMobile()) {
   new vConolse()
   // console.log(window.innerWidth || document)
 }

@@ -1,21 +1,8 @@
 <template>
   <div class="note-panel" ref="note-panel">
     <ul class="note-list">
-      <li class="note-item">
-        <p class="message">Run 4ever</p>
-        <span class="time">{{ new Date('2020-08-02') | dateFormat('yyyy.MM.dd') }}</span>
-      </li>
-      <li class="note-item">
-        <p class="message">Nothing:D</p>
-        <span class="time">{{ new Date('2018-08-01') | dateFormat('yyyy.MM.dd') }}</span>
-      </li>
-      <li class="note-item">
-        <p class="message">Alarm</p>
-        <span class="time">{{ new Date('2018-6-12') | dateFormat('yyyy.MM.dd') }}</span>
-      </li>
-      <li class="note-item">
-        <p class="message">up up</p>
-        <span class="time">{{ new Date('2018-12-25') | dateFormat('yyyy.MM.dd') }}</span>
+      <li class="note-item" v-for="{ text, title } of pharase" :key="text" :title="title">
+        {{ text }}
       </li>
     </ul>
   </div>
@@ -23,11 +10,28 @@
 
 <script>
 import { dateFormat } from '@/filters'
+
+const pharase = [
+  {
+    text: 'Do well is better than say well.',
+    title: '说得好不如做得好。',
+  },
+  {
+    text: 'He who commences many things finishes but a few.',
+    title: '样样都搞，完成的少。',
+  },
+]
+
 export default {
-  name: "Note",
+  name: 'Note',
+  data() {
+    return {
+      pharase,
+    }
+  },
   filters: {
-    dateFormat: dateFormat
-  }
+    dateFormat: dateFormat,
+  },
 }
 </script>
 
@@ -43,24 +47,25 @@ export default {
   overflow: hidden;
   height: 122px;
   position: relative;
-  
+
   .note-list {
     .note-item {
-      display: flex;
+      // display: flex;
+      // text-align: center;
       background-color: @blue;
       color: @grey;
       border-top: 1px solid transparent;
       padding: 10px 20px;
       height: 40px;
       line-height: 40px;
-      
+
       .message {
         flex: 1;
-        .text (#fff, 13px, 500);
+        .text (#fff, 14px, 500);
       }
 
       .time {
-        .text (#fff, 12px, 100);
+        .text (#fff, 14px, 100);
       }
     }
   }

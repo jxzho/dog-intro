@@ -58,7 +58,6 @@ export default {
 
 <style scoped lang="less">
 @panelWidth: 70%;
-@fontSize: 14px;
 
 .intro {
   background: @blue;
@@ -70,13 +69,13 @@ export default {
   box-sizing: border-box;
 
   .brief {
+    font-size: 16px;
     margin-top: 40px;
     padding: 20px 0;
     width: @panelWidth;
     text-align: center;
     background: #fff;
     border-radius: 4px;
-    font-size: @fontSize;
     color: #333;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
@@ -86,7 +85,6 @@ export default {
     width: @panelWidth;
     background: #fff;
     border-radius: 4px;
-    font-size: @fontSize;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -107,7 +105,7 @@ export default {
       }
 
       .state {
-        font-size: 13px;
+        font-size: 16px;
         color: #555;
         margin: 8px 0 0 0;
       }
