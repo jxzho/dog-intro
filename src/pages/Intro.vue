@@ -69,7 +69,6 @@ export default {
   box-sizing: border-box;
 
   .brief {
-    font-size: 16px;
     margin-top: 40px;
     padding: 20px 0;
     width: @panelWidth;
@@ -105,7 +104,6 @@ export default {
       }
 
       .state {
-        font-size: 16px;
         color: #555;
         margin: 8px 0 0 0;
       }

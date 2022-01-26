@@ -142,7 +142,6 @@ export default {
       cursor: pointer;
       text-align: center;
       color: rgba(0, 0, 0, 0.7);
-      font-size: 16px;
       line-height: 30px;
       user-select: none;
       background: #fff;

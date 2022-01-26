@@ -55,7 +55,6 @@ export default {
       align-items: center;
       margin: 28px 0;
       color: rgba(0, 0, 0, 0.8);
-      font-size: 16px;
     }
   }
 }

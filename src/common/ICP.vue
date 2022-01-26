@@ -43,6 +43,7 @@ export default {
   position: absolute;
   bottom: 20px;
   display: flex;
+  font-size: 12px;
 
   .source {
     display: inline-block;
