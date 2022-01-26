@@ -6,17 +6,3 @@
     url('https://at.alicdn.com/t/font_901793_sbixlfa49dj.ttf') format('truetype'),
     url('https://at.alicdn.com/t/font_901793_sbixlfa49dj.svg#iconfont') format('svg');
 }
-
-@font-face {
-  font-family: 'mainfont';
-  font-weight: normal;
-  src: url('https://static.junxio.com/static/font/Smartisan_Compact_CNS-Medium.woff2') format('woff2'),
-    url('https://static.junxio.com/static/font/Smartisan_Compact_CNS-Medium.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'mainfont';
-  font-weight: bold;
-  src: url('https://static.junxio.com/static/font/Smartisan_Compact_CNS-Bold.woff2') format('woff2'),
-    url('https://static.junxio.com/static/font/Smartisan_Compact_CNS-Bold.otf') format('opentype');
-}
