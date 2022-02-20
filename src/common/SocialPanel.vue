@@ -128,13 +128,16 @@ export default {
   opacity: 0;
   transform: translateY(-20px);
 }
+
 .v-leave-to {
   opacity: 0;
   transform: translateY(20px);
 }
+
 .v-enter-active {
   transition: all 0.8s ease;
 }
+
 .v-leave-active {
   transition: all 0.4s ease;
 }
@@ -345,6 +348,7 @@ export default {
       left: 50%;
       margin-left: -5px;
     }
+
     .to-right {
       font-family: 'iconfont';
       background: transparent;
@@ -354,9 +358,18 @@ export default {
       right: 12px;
       cursor: pointer;
     }
+
     .motto {
       position: absolute;
+      line-height: 1.35;
       font-weight: normal;
+      padding: 0 20px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
   }
 }
