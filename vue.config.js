@@ -5,8 +5,12 @@ function resolve(dir) {
 }
 
 module.exports = {
-  baseUrl: './',
+  publicPath: './',
   lintOnSave: false,
+  devServer: {
+    hotOnly: false,
+  },
+
   chainWebpack: config => {
     config.resolve.alias
       .set('@$', resolve('src'))
@@ -25,9 +29,9 @@ module.exports = {
       preProcessor: 'less',
       patterns: [
         path.resolve(__dirname, './src/assets/styles/theme.less'),
-        path.resolve(__dirname, './src/assets/styles/mixins.less')
-      ]
-    }
+        path.resolve(__dirname, './src/assets/styles/mixins.less'),
+      ],
+    },
   },
 
   pwa: {
@@ -36,7 +40,7 @@ module.exports = {
       favicon16: 'favicon.ico',
       appleTouchIcon: 'favicon.ico',
       maskIcon: 'favicon.ico',
-      msTileImage: 'favicon.ico'
-    }
-  }
+      msTileImage: 'favicon.ico',
+    },
+  },
 }
