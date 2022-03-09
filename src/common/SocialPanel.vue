@@ -75,32 +75,32 @@
 </template>
 
 <script>
-const mottoesDefault = ['Keep Moving', '保持热情', '永远不要放弃', '坚持', '你好，我是钟俊雄']
+const mottoes = ['Keep Moving', '保持热情', '永远不要放弃', '坚持', '你好，我是钟俊雄']
 
-const getDailySentence = () => {
-  return fetch('https://v1.hitokoto.cn/?encode=json', {
-    method: 'GET',
-  })
-    .then(_ => _.json())
-    .then(res => {
-      return res.hitokoto
-    })
-}
+// const getDailySentence = () => {
+//   return fetch('https://v1.hitokoto.cn/?encode=json', {
+//     method: 'GET',
+//   })
+//     .then(_ => _.json())
+//     .then(res => {
+//       return res.hitokoto
+//     })
+// }
 
 export default {
   name: 'Social',
   data() {
     return {
       timer: null,
-      mottoes: [],
+      mottoes,
       curIndex: 1,
     }
   },
-  created() {
-    getDailySentence().then(sentence => {
-      this.mottoes = [sentence].concat(mottoesDefault)
-    })
-  },
+  // created() {
+  //   getDailySentence().then(sentence => {
+  //     this.mottoes = [sentence].concat(mottoesDefault)
+  //   })
+  // },
   mounted() {
     const showBrief = () => {
       setTimeout(() => {

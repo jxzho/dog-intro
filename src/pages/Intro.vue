@@ -4,6 +4,10 @@
     <div class="brief" v-html="getHTML(oRo.Introduce.brief)" />
     <div class="person-info">
       <div class="person-info-item">
+        <img class="state-icon" :src="oRo.Introduce.major.iconUrl" />
+        <span class="state">{{ oRo.Introduce.major.text }}</span>
+      </div>
+      <div class="person-info-item">
         <img class="state-icon" :src="oRo.Introduce.birth.iconUrl" />
         <span class="state">{{ oRo.Introduce.birth.text }}</span>
       </div>
@@ -23,12 +27,7 @@
         <img class="state-icon" :src="oRo.Introduce.tel.iconUrl" />
         <span class="state">{{ oRo.Introduce.tel.text }}</span>
       </div>
-      <div class="person-info-item">
-        <img class="state-icon" :src="oRo.Introduce.major.iconUrl" />
-        <span class="state">{{ oRo.Introduce.major.text }}</span>
-      </div>
     </div>
-
     <ICP type="light" />
   </div>
 </template>

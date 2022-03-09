@@ -1,29 +1,33 @@
 <template>
   <div class="container" ref="container" @mousewheel="handleMouseWheel">
+    <!-- prettier-ignore -->
     <Home :class="['page', {
-            prePage: curIndex > 0,
-            curPage: curIndex === 0,
-            nextPage: curIndex < 0
-          }]"
+           prePage: curIndex > 0,
+           curPage: curIndex === 0,
+           nextPage: curIndex < 0
+         }]"
           @transitionend.native="handleTranEnd" />
+    <!-- prettier-ignore -->
     <Intro :class="['page', {
             prePage: curIndex > 1,
             curPage: curIndex === 1,
             nextPage: curIndex < 1
           }]"
-          @transitionend.native="handleTranEnd" />
+           @transitionend.native="handleTranEnd" />
+    <!-- prettier-ignore -->
     <Skill :class="['page', {
             prePage: curIndex > 2,
             curPage: curIndex === 2,
             nextPage: curIndex < 2
           }]" 
-          @transitionend.native="handleTranEnd" />
+           @transitionend.native="handleTranEnd" />
+    <!-- prettier-ignore -->
     <Project :class="['page', {
-            prePage: curIndex > 3,
-            curPage: curIndex === 3,
-            nextPage: curIndex < 3
+              prePage: curIndex > 3,
+              curPage: curIndex === 3,
+              nextPage: curIndex < 3
             }]"
-          @transitionend.native="handleTranEnd" />
+             @transitionend.native="handleTranEnd" />
     <ProgressBar />
   </div>
 </template>
@@ -41,6 +45,9 @@ export default {
   },
   computed: {
     ...mapState(['curIndex', 'transitionEnd']),
+  },
+  mounted() {
+    injectActions(this.$store)
   },
   methods: {
     // changeIndex(index) {
@@ -62,9 +69,6 @@ export default {
       //   e.wheelDelta < 0 ? this.changeIndex(this.curIndex + 1) : this.changeIndex(this.curIndex - 1)
       // }, 100)
     },
-  },
-  mounted() {
-    injectActions(this.$store)
   },
 }
 </script>
@@ -91,6 +95,7 @@ body {
     width: 100%;
     height: 100%;
     transition: all 0.5s ease;
+    animation: 10s ease page-change;
   }
 
   .prePage {

@@ -13,12 +13,12 @@ import { dateFormat } from '@/filters'
 
 const pharase = [
   {
-    text: 'Do well is better than say well.',
-    title: '说得好不如做得好。',
+    text: '说得好不如做得好。',
+    title: 'Do well is better than say well.',
   },
   {
-    text: 'He who commences many things finishes but a few.',
-    title: '样样都搞，完成的少。',
+    text: '努力是唯一的解药。',
+    title: '别逃，奥利给。',
   },
 ]
 

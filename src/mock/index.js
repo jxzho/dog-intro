@@ -1,6 +1,6 @@
 const cdnDomain = 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static'
 
-const avatarUrl = 'https://static.junxio.com/assets/avatar_me.jpg'
+const avatarUrl = 'https://static.junxio.com/assets/avatar_4me.png'
 
 export const pageData = {
   Home: {
