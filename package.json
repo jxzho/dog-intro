@@ -2,8 +2,11 @@
   "name": "junxio.com",
   "version": "1.0.0",
   "private": true,
-  "sideEffects": false,
-  "scripts": {
+  "sideEffects": [
+    "*.css",
+    "*.vue",
+    "./src/assets/styles/index.js"
+  ],  "scripts": {
     "dev": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build",
     "build:report": "vue-cli-service build --report",
