@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import { GithubUsername } from '@/modules/init'
+
 export default {
   name: 'Project',
   meta: {
@@ -84,7 +86,7 @@ export default {
             '预加载。',
             '部分优化。',
           ],
-          link: `https://github.com/${githubUsername}/resume`,
+          link: `https://github.com/${GithubUsername}/resume`,
           capture: 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/project/mobile_resume_capture.png',
           viewerUrl: 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/QRcode/mobile_qr_code.png',
         },
@@ -99,7 +101,7 @@ export default {
             '用Zepto控制歌词滚动，歌词与音乐同步，进度条显示。',
             '后端使用express监听并处理请求。',
           ],
-          link: `https://github.com/${githubUsername}/qqmusic`,
+          link: `https://github.com/${GithubUsername}/qqmusic`,
           capture: 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/project/qqmusic_capture.png',
           viewerUrl: 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/QRcode/music_qr_code.png',
         },
@@ -117,7 +119,7 @@ export default {
             '图标优化，使用阿里iconfont、svg展示图标。',
             '已在阿里云服务器部署。',
           ],
-          link: `https://github.com/${githubUsername}/qunar-touch`,
+          link: `https://github.com/${GithubUsername}/qunar-touch`,
           capture: 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/project/qunar_capture.png',
           viewerUrl: 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/QRcode/qunar_qr_code.png',
         },

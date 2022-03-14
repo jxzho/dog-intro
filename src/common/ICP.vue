@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { GithubUsername } from '@/modules/init'
+
 export default {
   name: 'IcpInfo',
   props: {
@@ -21,7 +23,7 @@ export default {
   },
   data() {
     return {
-      sourceUrl: `https://github.com/${githubUsername}/junxio.com`,
+      sourceUrl: `https://github.com/${GithubUsername}/junxio.com`,
       recordUrl: 'http://www.beian.miit.gov.cn',
       icp: 20001943,
       isMobile: false,

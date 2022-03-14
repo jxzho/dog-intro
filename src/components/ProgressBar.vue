@@ -15,12 +15,13 @@
 <script>
 // import { mapState } from 'vuex';
 import { mapState } from '@/store/state'
+import { Pages } from '@/modules/init'
 
 export default {
   name: 'ProgressBar',
   data() {
     return {
-      pagesInfo: global.pages.sort((cur, next) => cur.page - next.page),
+      pagesInfo: Pages.sort((cur, next) => cur.page - next.page),
       showCurLint: false,
     }
   },
@@ -35,7 +36,7 @@ export default {
   watch: {
     curIndex: {
       handler(index) {
-        document.title = `Junxio's ${global.pages[index].label}`
+        document.title = `Junxio's ${Pages[index].label}`
       },
       immediate: true,
     },
@@ -44,7 +45,7 @@ export default {
     const doc = document.body || document.documentElement
     doc.addEventListener('keyup', e => {
       clearInterval(this._keyActionTimer)
-      const pageNum = global.pages.length
+      const pageNum = Pages.length
 
       const key = e.keyCode || e.which
       // 38 up. 40 down

@@ -1,10 +1,14 @@
-global.pages = []
+const Pages = []
 
-const pages = require.context('../pages/', true, /\.vue$/)
-pages.keys().forEach(key => {
-  let cur = pages(key)
-  const { name, label, page } = (cur.default || cur).meta || {}
-  global.pages.push({ name, label, page }) 
-})
+export const GithubUsername = 'jxzho'
 
-global.githubUsername = 'jxzho'
+const initPages = () => {
+  const pages = require.context('../pages/', true, /\.vue$/)
+  pages.keys().forEach(key => {
+    let cur = pages(key)
+    const { name, label, page } = (cur.default || cur).meta || {}
+    Pages.push({ name, label, page })
+  })
+}
+
+export { Pages, initPages }

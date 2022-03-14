@@ -36,12 +36,13 @@
 // import { mapState } from 'vuex'
 import { injectActions } from './helper/actions'
 import { mapState } from '@/store/state'
+import { Pages } from '@/modules/init'
 
 export default {
   name: 'App',
   data() {
     return {
-      pageSize: global.pages.length || 0,
+      pageSize: Pages.length || 0,
     }
   },
   computed: {

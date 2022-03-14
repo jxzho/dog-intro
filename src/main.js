@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import store from '@/store'
 
-import '@/modules/init'
-import '@/plugins'
+import { initPages } from '@/modules/init'
+import { startRegisterPages } from '@/plugins'
 import { pageData } from '@/mock/index'
 import { isMobile } from '@/utils'
 
 import { State } from '@/store/state'
 
 import '@/assets/styles'
+
+initPages()
+startRegisterPages()
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -21,7 +23,6 @@ Vue.prototype.$global = pageData
 Vue.use(State)
 
 new Vue({
-  // store,
   render: h => h(App),
 }).$mount('#app')
 

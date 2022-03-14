@@ -1,4 +1,6 @@
 <script>
+import { GithubUsername } from '@/modules/init'
+
 export default {
   props: {
     name: String,
@@ -40,7 +42,7 @@ export default {
         )
       },
       Github: {
-        link: `https://github.com/${global.githubUsername}`,
+        link: `https://github.com/${GithubUsername}`,
         content: (
           <svg
             aria-hidden="true"
