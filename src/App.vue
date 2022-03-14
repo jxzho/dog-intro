@@ -50,11 +50,6 @@ export default {
   mounted() {
     injectActions(this.$store)
   },
-  watch: {
-    curIndex(val) {
-      console.log(val);
-    }
-  },
   methods: {
     // changeIndex(index) {
     //   this.$store.commit('changeIndex', index)

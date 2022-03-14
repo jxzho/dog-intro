@@ -11,9 +11,6 @@ const install = Vue => {
       ifShowViewer: false,
       url: '', // 链接
     },
-    created() {
-      console.log('__State__ Created~')
-    },
     methods: {
       changeIndex(index) {
         this.curIndex = index
