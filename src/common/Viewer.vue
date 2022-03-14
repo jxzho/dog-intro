@@ -1,25 +1,26 @@
 <template>
   <transition name="viewer">
-    <div class="viewer" 
-       v-show="ifShowViewer"
-       @click="handleCloseViewer">
-      <img class="image" :src="url">
-    </div>  
+    <div class="viewer" v-show="ifShowViewer" @click="handleCloseViewer">
+      <img class="image" :src="url" />
+    </div>
   </transition>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
+import { mapState } from '@/store/state'
+
 export default {
   name: 'Viewer',
   methods: {
-    handleCloseViewer () {
-      this.$store.commit('hideViewer');
-    }
+    handleCloseViewer() {
+      // this.$store.commit('hideViewer')
+      this.state.hideViewer()
+    },
   },
   computed: {
-    ...mapState(['ifShowViewer', 'url'])
-  }
+    ...mapState(['ifShowViewer', 'url']),
+  },
 }
 </script>
 
@@ -34,7 +35,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, 0.8);
   .image {
     width: @imageWidth;
     height: @imageWidth;
@@ -42,10 +43,12 @@ export default {
   }
 }
 
-.viewer-enter, .viewer-leave-to {
+.viewer-enter,
+.viewer-leave-to {
   opacity: 0;
 }
-.viewer-enter-active, .viewer-leave-active {
-  transition: .3s;
+.viewer-enter-active,
+.viewer-leave-active {
+  transition: 0.3s;
 }
 </style>

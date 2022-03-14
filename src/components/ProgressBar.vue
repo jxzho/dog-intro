@@ -13,56 +13,68 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
+import { mapState } from '@/store/state'
+
 export default {
   name: 'ProgressBar',
   data() {
     return {
       pagesInfo: global.pages.sort((cur, next) => cur.page - next.page),
       showCurLint: false,
-    };
+    }
   },
   computed: {
     ...mapState(['curIndex', 'transitionEnd']),
     pos() {
       return {
         transform: `translateY(${this.curIndex * 45}px)`,
-      };
+      }
     },
   },
   watch: {
     curIndex: {
       handler(index) {
-        document.title = `Junxio's ${global.pages[index].label}`;
+        document.title = `Junxio's ${global.pages[index].label}`
       },
       immediate: true,
     },
   },
   created() {
     const doc = document.body || document.documentElement
-    doc.addEventListener('keyup', (e) => {
+    doc.addEventListener('keyup', e => {
       clearInterval(this._keyActionTimer)
       const pageNum = global.pages.length
 
       const key = e.keyCode || e.which
       // 38 up. 40 down
       this._keyActionTimer = setTimeout(() => {
-        if (key === 38 && this.curIndex !== 0) this.$store.commit('changeIndex', this.curIndex - 1);
-        if (key === 40 && this.curIndex !== pageNum - 1) this.$store.commit('changeIndex', this.curIndex + 1);
-      }, 200);
+        if (key === 38 && this.curIndex !== 0) {
+          // this.$store.commit('changeIndex', this.curIndex - 1)
+          const val = this.curIndex - 1
+          this.state.changeIndex(val)
+        }
+        if (key === 40 && this.curIndex !== pageNum - 1) {
+          // this.$store.commit('changeIndex', this.curIndex + 1)
+          const val = this.curIndex + 1
+          this.state.changeIndex(val)
+        }
+      }, 200)
     })
   },
   methods: {
     handleJumpPage(index) {
-      clearTimeout(this.timer);
-      if (!this.transitionEnd) return;
+      clearTimeout(this.timer)
+      if (!this.transitionEnd) return
       this.timer = setTimeout(() => {
-        this.$store.commit('changeTranEnd', false);
-        this.$store.commit('changeIndex', index);
-      }, 100);
+        this.state.changeTranEnd(false)
+        this.state.changeIndex(index)
+        // this.$store.commit('changeTranEnd', false);
+        // this.$store.commit('changeIndex', index);
+      }, 100)
     },
   },
-};
+}
 </script>
 <style scoped lang="less">
 @hintActColor: rgba(0, 0, 0, 0.7);

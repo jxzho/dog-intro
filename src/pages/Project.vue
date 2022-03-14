@@ -140,7 +140,8 @@ export default {
       this.captureIndex = this.captureIndex === index ? -1 : index
     },
     handleShowViewer(url) {
-      this.$store.commit('showViewer', url)
+      this.state.showViewer(url)
+      // this.$store.commit('showViewer', url)
     },
   },
 }

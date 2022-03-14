@@ -33,8 +33,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 import { injectActions } from './helper/actions'
+import { mapState } from '@/store/state'
 
 export default {
   name: 'App',
@@ -49,12 +50,18 @@ export default {
   mounted() {
     injectActions(this.$store)
   },
+  watch: {
+    curIndex(val) {
+      console.log(val);
+    }
+  },
   methods: {
     // changeIndex(index) {
     //   this.$store.commit('changeIndex', index)
     // },
     handleTranEnd() {
-      this.$store.commit('changeTranEnd', true)
+      // this.$store.commit('changeTranEnd', true)
+      this.state.changeTranEnd(true)
       clearTimeout(this.timer)
       this.timer = null
     },

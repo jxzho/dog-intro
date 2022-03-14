@@ -17,11 +17,15 @@ module.exports = {
       .set('assets', resolve('src/assets'))
       .set('components', resolve('src/components'))
       .set('common', resolve('src/common'))
+
     config.module
       .rule('image')
       .test(/\.ico$/)
       .use('url-loader')
       .loader('url-loader')
+
+    // Tree-Shaking
+    config.optimization.usedExports = true
   },
 
   pluginOptions: {
