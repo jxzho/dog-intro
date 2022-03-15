@@ -2,7 +2,7 @@ const State = () => {}
 
 let stateInstance
 
-const install = Vue => {
+const install = (Vue) => {
   stateInstance = new Vue({
     data: {
       name: '__State__',
@@ -44,10 +44,10 @@ const install = Vue => {
   Vue.prototype.state = stateInstance
 }
 
-const mapState = arr => {
+const mapState = (arr) => {
   const o = {}
   arr.reduce((computedO, key) => {
-    computedO[key] = function() {
+    computedO[key] = function () {
       return stateInstance[key]
     }
     return computedO
