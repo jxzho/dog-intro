@@ -44,12 +44,15 @@ export default {
     }
   },
   watch: {
-    '$store.state.curIndex'(val) {
+    'state.curIndex'(val) {
       if (val !== 0) {
         localStorage.setItem('page-home-leaved', true)
         this.iconPointerVisible = false
       }
     },
+  },
+  mounted() {
+    this.$emit('mounted')
   },
 }
 </script>

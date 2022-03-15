@@ -7,10 +7,9 @@ function capitalizeFirstLetter(string) {
 const startRegisterPages = () => {
   const requireComponent = require.context('../', true, /\.vue$/)
   requireComponent.keys().forEach(fileName => {
-    if (fileName.match(/\/(common|components|pages)/g)) {
+    if (fileName.match(/\/(common)/g)) {
       const componentConfig = requireComponent(fileName)
       const componentName = capitalizeFirstLetter(/([^/]+)\.vue$/.exec(fileName)[1])
-
       Vue.component(componentName, componentConfig.default || componentConfig)
     }
   })
