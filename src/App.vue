@@ -27,31 +27,51 @@
               curPage: curIndex === 3,
               nextPage: curIndex < 3
             }]"
-             @transitionend.native="handleTranEnd" />
+             @transitionend.native="handleTranEnd">
+      </Project>
     <ProgressBar />
   </div>
 </template>
 
 <script>
-// import { mapState } from 'vuex'
+// import Vue from 'vue'
 import { injectActions } from './helper/actions'
 import { mapState } from '@/store/state'
 import { Pages } from '@/modules/init'
 
 export default {
   name: 'App',
+  components: {
+    Home: () => import('@/pages/Home.vue'),
+    Intro: () => import(/* webpackChunkName: "Intro" */ '@/pages/Intro.vue'),
+    Skill: () => import(/* webpackChunkName: "Skill" */ '@/pages/Skill.vue'),
+    Project: () => import(/* webpackChunkName: "Project" */ '@/pages/Project.vue'),
+  },
   data() {
     return {
       pageSize: Pages.length || 0,
+      otherPagesVisible: false,
     }
   },
   computed: {
     ...mapState(['curIndex', 'transitionEnd']),
   },
   mounted() {
-    injectActions(this.$store)
+    injectActions(this.state)
   },
   methods: {
+    onHomeMounted() {
+      // import(
+      //   /* webpackChunkName: "Project.page" */
+      //   /* webpackMode: "lazy" */
+      //   /* webpackExports: ["default"] */
+      //   './pages/Project.vue'
+      // ).then(({ default: Component }) => {
+      //   const Project = Vue.extend(Component)
+      //   const project = new Project().$mount()
+      //   document.querySelector('.page.project').appendChild(project.$el)
+      // })
+    },
     // changeIndex(index) {
     //   this.$store.commit('changeIndex', index)
     // },
