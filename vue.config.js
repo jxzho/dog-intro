@@ -33,11 +33,11 @@ module.exports = {
     config.optimization.splitChunks({
       ...config.optimization.get('splitChunks'),
       chunks: 'all',
-      automaticNameDelimiter: '-',
+      automaticNameDelimiter: '~~',
       minSize: 0,
       minChunks: 1,
       cacheGroups: {
-        defaultVendors: {
+        vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
           reuseExistingChunk: true,
