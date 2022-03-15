@@ -4,9 +4,11 @@
   "private": true,
   "sideEffects": [
     "*.css",
+    "*.less",
     "*.vue",
     "./src/assets/styles/index.js"
-  ],  "scripts": {
+  ],
+  "scripts": {
     "dev": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build",
     "build:report": "vue-cli-service build --report",
