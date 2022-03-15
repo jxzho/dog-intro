@@ -25,10 +25,10 @@ const createListeners = (
     return removeEventListener(key, fn, defaultOptions)
   }
 
-  const registerEvent = eventName => {
+  const registerEvent = (eventName) => {
     let callback
 
-    const start = eventCallback => {
+    const start = (eventCallback) => {
       callback = eventCallback
       addListener(eventName, eventCallback)
     }
@@ -50,22 +50,22 @@ const createListeners = (
   }
 }
 
-const handleRealDirection = (store, val) => {
+const handleRealDirection = (state, val) => {
   if (val === DIR_UP) {
-    store.dispatch('slideUp')
+    state.slideUp()
   }
   if (val === DIR_DOWN) {
-    store.dispatch('slideDown')
+    state.slideDown()
   }
 }
 
-export const injectActions = store => {
+export const injectActions = (state) => {
   const { registerEvent } = createListeners()
   const { start: startTouchStart } = registerEvent('touchstart')
   const { start: startTouchMoving, stop: stopTouchMoing } = registerEvent('touchmove')
   const { start: startTouchEnd, stop: stopTouchEnd } = registerEvent('touchend')
 
-  const touchMoving = e => {
+  const touchMoving = (e) => {
     if (e.preventDefault) {
       e.preventDefault()
       e.stopPropagation()
@@ -78,16 +78,16 @@ export const injectActions = store => {
     }
   }
 
-  const touchEnd = e => {
+  const touchEnd = (e) => {
     endY = e.changedTouches[0].clientY
-    if (isTouchMoving && store.state.transitionEnd) {
+    if (isTouchMoving && state.transitionEnd) {
       const offsetY = startY - endY
       const offsetYAbs = Math.abs(offsetY)
 
       if (offsetYAbs > 120) {
         directionVal = offsetY < 0 ? DIR_UP : DIR_DOWN
       }
-      handleRealDirection(store, directionVal)
+      handleRealDirection(state, directionVal)
     }
 
     isTouchEnd = true
@@ -97,7 +97,7 @@ export const injectActions = store => {
     stopTouchEnd()
   }
 
-  const touchStart = e => {
+  const touchStart = (e) => {
     isTouchStart = true
     if (isTouchEnd) {
       startY = e.touches[0].clientY
