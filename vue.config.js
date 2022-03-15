@@ -11,11 +11,13 @@ module.exports = {
     hotOnly: false,
   },
 
-  chainWebpack: config => {
+  chainWebpack: (config) => {
+    // config.plugins.delete('prefetch')
+    // config.plugins.delete('preload')
+
     config.resolve.alias
       .set('@$', resolve('src'))
       .set('assets', resolve('src/assets'))
-      .set('components', resolve('src/components'))
       .set('common', resolve('src/common'))
 
     config.module
@@ -26,6 +28,27 @@ module.exports = {
 
     // Tree-Shaking
     config.optimization.usedExports = true
+
+    // Code Splitting
+    config.optimization.splitChunks({
+      ...config.optimization.get('splitChunks'),
+      chunks: 'all',
+      automaticNameDelimiter: '-',
+      minSize: 0,
+      minChunks: 1,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    })
   },
 
   pluginOptions: {
