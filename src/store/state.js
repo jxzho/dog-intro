@@ -45,14 +45,12 @@ const install = (Vue) => {
 }
 
 const mapState = (arr) => {
-  const o = {}
-  arr.reduce((computedO, key) => {
+  return arr.reduce((computedO, key) => {
     computedO[key] = function () {
       return stateInstance[key]
     }
     return computedO
-  }, o)
-  return o
+  }, {})
 }
 
 State.install = install
