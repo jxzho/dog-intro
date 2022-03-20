@@ -6,3 +6,12 @@ export const isMobile = () => {
     return false
   }
 }
+
+export const setImgSrcset = (config) => {
+  return Object.entries(config)
+    .map((item) => {
+      const [key, value] = item
+      return value + ` ${key}`
+    })
+    .join(', ')
+}
