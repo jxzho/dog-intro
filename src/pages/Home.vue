@@ -2,7 +2,7 @@
   <div class="home">
     <div class="avatar-wrapper">
       <div class="avatar" @mouseenter="dialogueShow = true" @mouseleave="dialogueShow = false">
-        <img :src="oRo.Home.avatarUrl" />
+        <img :src="oRo.Home.avatarUrl" :srcset="avatarSrcset" />
       </div>
       <transition>
         <div class="dialogue" v-show="dialogueShow">{{ oRo.Home.greeting }}</div>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { setImgSrcset } from '@/utils'
 export default {
   name: 'Home',
   meta: {
@@ -42,9 +43,18 @@ export default {
   data() {
     // const firstIn = !localStorage.getItem('page-home-leaved')
     const isMobile = navigator.userAgent.match(/Mobile/g)
+    const oRo = { ...this.$global }
+
+    const avatarSrcset = setImgSrcset({
+      ['1x']: oRo.Home.avatarUrl + '?x-oss-process=image/resize,w_150',
+      ['2x']: oRo.Home.avatarUrl + '?x-oss-process=image/resize,w_300',
+      ['3x']: oRo.Home.avatarUrl + '?x-oss-process=image/resize,w_450',
+    })
+
     return {
       dialogueShow: false,
-      oRo: { ...this.$global },
+      oRo,
+      avatarSrcset,
       iconPointerVisible: isMobile, // && firstIn,
     }
   },
