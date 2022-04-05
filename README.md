@@ -1,7 +1,8 @@
 [LINK](https://junxio.com)
 
 ##### TODO
+
+- [x] Tree Shaking
+- [x] Code Spliting
 - [] Use Composition API
-- [] Tree Shaking
-- [] Code Spliting
 - [] Use Service Worker
