@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#4f8dee">
+    <meta name="og:title" content="<%= VUE_APP_INDEX_TITLE %>">
+    <meta name="og:description" content="<%= VUE_APP_INDEX_DESC %>">
+    <meta name="og:type" content="website">
+    <meta name="og:url" content="https://junxio.com">
+    <meta name="og:image" content="<%= VUE_APP_URL_AVATAR %>">
+    <meta name="description" content="<%= VUE_APP_INDEX_DESC %>">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>俊雄</title>
+    <title><%= VUE_APP_INDEX_TITLE %></title>
   </head>
   <body>
+    <image desc="for seo" src="<%= VUE_APP_URL_AVATAR %>?x-oss-process=image/resize,w_50" style="display: none;" />
     <div id="app"></div>
   </body>
 </html>
