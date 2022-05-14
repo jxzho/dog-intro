@@ -8,12 +8,18 @@
       </template>
     </div> -->
     <div class="planet">
-      <span v-for=" (item, index) of planets" :class="['item', `item${ index + 1 }`]" :key="`planet-item-${index}`" @click="handleRotate(index)">
-        {{item}}
+      <span
+        v-for="(item, index) of planets"
+        :class="['item', `item${index + 1}`]"
+        :key="`planet-item-${index}`"
+        @click="handleRotate(index)"
+      >
+        {{ item }}
       </span>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -63,6 +69,7 @@ export default {
   },
 }
 </script>
+
 <style scoped lang="less">
 @Len: unit(250 - 15, px);
 @Lenx: unit(125 - 50, px);
