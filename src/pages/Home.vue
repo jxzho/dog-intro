@@ -33,7 +33,8 @@
 </template>
 
 <script>
-import { setImgSrcset } from '@/utils'
+import { setImgSrcset, isMobile } from '@/utils'
+
 export default {
   name: 'Home',
   meta: {
@@ -41,8 +42,6 @@ export default {
     page: 1,
   },
   data() {
-    // const firstIn = !localStorage.getItem('page-home-leaved')
-    const isMobile = navigator.userAgent.match(/Mobile/g)
     const oRo = { ...this.$global }
 
     const avatarSrcset = setImgSrcset({
@@ -55,13 +54,12 @@ export default {
       dialogueShow: false,
       oRo,
       avatarSrcset,
-      iconPointerVisible: isMobile, // && firstIn,
+      iconPointerVisible: isMobile(),
     }
   },
   watch: {
     'state.curIndex'(val) {
       if (val !== 0) {
-        // localStorage.setItem('page-home-leaved', true)
         this.iconPointerVisible = false
       }
     },
