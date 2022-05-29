@@ -1,3 +1,7 @@
+export * from './debounce.js'
+
+export const isDev = process.env.NODE_ENV === 'development'
+
 export const isMobile = () => {
   const ua = window.navigator.userAgent.toUpperCase()
   if (ua.match(/MOBILE/g)) {

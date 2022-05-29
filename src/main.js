@@ -2,18 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import { initPages } from '@/modules/init'
-import { startRegisterPages } from '@/plugins'
+import { registerGlobalComponents } from '@/plugins'
 import { pageData } from '@/mock/index'
-import { isMobile } from '@/utils'
+import { isMobile, isDev } from '@/utils'
 
 import { State } from '@/store/state'
 
 import '@/assets/styles'
 
 initPages()
-startRegisterPages()
-
-const isDev = process.env.NODE_ENV === 'development'
+registerGlobalComponents()
 
 Vue.config.productionTip = isDev
 
