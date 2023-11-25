@@ -6,8 +6,8 @@ const initPages = () => {
   const pages = require.context('../pages/', true, /\.vue$/)
   pages.keys().forEach(key => {
     let cur = pages(key)
-    const { name, label, page } = (cur.default || cur).meta || {}
-    Pages.push({ name, label, page })
+    const { label, page } = (cur.default || cur).meta || {}
+    Pages.push({ name: cur.default.name, label, page })
   })
 }
 

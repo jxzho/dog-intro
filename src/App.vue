@@ -15,20 +15,20 @@
           }]"
            @transitionend.native="handleTranEnd" />
     <!-- prettier-ignore -->
-    <Skill :class="['page', {
+    <!-- <Skill :class="['page', {
             prePage: curIndex > 2,
             curPage: curIndex === 2,
             nextPage: curIndex < 2
           }]" 
-           @transitionend.native="handleTranEnd" />
+           @transitionend.native="handleTranEnd" /> -->
     <!-- prettier-ignore -->
-    <Project :class="['page', {
+    <!-- <Project :class="['page', {
               prePage: curIndex > 3,
               curPage: curIndex === 3,
               nextPage: curIndex < 3
             }]"
              @transitionend.native="handleTranEnd">
-      </Project>
+      </Project> -->
     <ProgressBar />
   </div>
 </template>
@@ -44,8 +44,8 @@ export default {
   components: {
     Home: () => import('@/pages/Home.vue'),
     Intro: () => import(/* webpackChunkName: "Intro" */ '@/pages/Intro.vue'),
-    Skill: () => import(/* webpackChunkName: "Skill" */ '@/pages/Skill.vue'),
-    Project: () => import(/* webpackChunkName: "Project" */ '@/pages/Project.vue'),
+    // Skill: () => import(/* webpackChunkName: "Skill" */ '@/pages/Skill.vue'),
+    // Project: () => import(/* webpackChunkName: "Project" */ '@/pages/Project.vue'),
   },
   data() {
     return {

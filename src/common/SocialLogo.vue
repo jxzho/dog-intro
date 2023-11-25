@@ -24,7 +24,7 @@ export default {
   render() {
     const IconSvg = {
       Blog: {
-        link: 'https://blog.junxio.com', // 'https://www.jianshu.com/u/8c0f62fa164f',
+        link: '', // 'https://www.jianshu.com/u/8c0f62fa164f',
         content: (
           <svg
             aria-hidden="true"

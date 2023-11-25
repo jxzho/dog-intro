@@ -23,9 +23,9 @@ export default {
   },
   data() {
     return {
-      sourceUrl: `https://github.com/${GithubUsername}/junxio.com`,
-      recordUrl: 'http://www.beian.miit.gov.cn',
-      icp: 20001943,
+      sourceUrl: `https://github.com/${GithubUsername}/dog-intro`,
+      recordUrl: 'https://beian.miit.gov.cn/#/Integrated/index',
+      icp: 2023134810,
       isMobile: false,
     }
   },

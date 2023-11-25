@@ -1,4 +1,4 @@
-[LINK](https://junxio.com)
+[LINK](https://junxio.cc)
 
 ##### TODO
 

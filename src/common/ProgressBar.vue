@@ -16,7 +16,6 @@
 // import { mapState } from 'vuex';
 import { mapState } from '@/store/state'
 import { Pages } from '@/modules/init'
-
 export default {
   name: 'ProgressBar',
   data() {
@@ -36,7 +35,11 @@ export default {
   watch: {
     curIndex: {
       handler(index) {
-        document.title = `Junxio's ${Pages[index].label}`
+        if (Pages[index].name === 'Intro') {
+          document.title = process.env.VUE_APP_INDEX_TITLE + ' - About'
+        } else {
+          document.title = process.env.VUE_APP_INDEX_TITLE
+        }
       },
       immediate: true,
     },
