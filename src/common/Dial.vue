@@ -101,7 +101,7 @@ export default {
   .center {
     width: 200px;
     height: 200px;
-    background: url(https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/skill/earth.svg) no-repeat;
+    background-repeat: no-repeat;
     background-size: 200px 200px;
     border-radius: 125px;
     position: relative;

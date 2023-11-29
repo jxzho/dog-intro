@@ -1,8 +1,10 @@
-const cdnDomain = 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static'
+const cdnDomain = process.env.VUE_APP_URL_CDN_OSS
+
+const cdnDirAssets = cdnDomain + '/static'
 
 export const pageData = {
   Home: {
-    avatarUrl: process.env.VUE_APP_URL_ALI_OSS + '/assets/code200.png',
+    avatarUrl: cdnDomain + '/assets/code200.png',
     myName: 'JunXioZho',
     greeting: 'Hi，good to see you.',
   },
@@ -10,27 +12,27 @@ export const pageData = {
     pageTitle: 'About',
     brief: '热爱前端，熟悉`JavaScript`、`Vue`、`React`、`TypeScript`等',
     birth: {
-      iconUrl: `${cdnDomain}/info/cake.svg`,
+      iconUrl: `${cdnDirAssets}/info/cake.svg`,
       text: '1996.02.25',
     },
     university: {
-      iconUrl: `${cdnDomain}/info/university.svg`,
+      iconUrl: `${cdnDirAssets}/info/university.svg`,
       text: 'DGUT',
     },
     home: {
-      iconUrl: `${cdnDomain}/info/pin.svg`,
+      iconUrl: `${cdnDirAssets}/info/pin.svg`,
       text: 'ShenZhen',
     },
     mail: {
-      iconUrl: `${cdnDomain}/info/mail.svg`,
+      iconUrl: `${cdnDirAssets}/info/mail.svg`,
       text: 'junxio220@gmail.com',
     },
     tel: {
-      iconUrl: `${cdnDomain}/info/phone.svg`,
+      iconUrl: `${cdnDirAssets}/info/phone.svg`,
       text: '13049896626',
     },
     major: {
-      iconUrl: `${cdnDomain}/info/cap.svg`,
+      iconUrl: `${cdnDirAssets}/info/cap.svg`,
       text: '计算机科学与技术',
     },
   },

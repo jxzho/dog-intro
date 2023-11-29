@@ -2,23 +2,23 @@
 @font-face {
   font-family: ST H;
   font-weight: bold;
-  src: url('https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/font/Smartisan_Compact-Bold.ttf') format('truetype');
+  src: url('https://cdn.junxio.cc/static/font/Smartisan_Compact-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: ST H;
   font-weight: bolder;
-  src: url('https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/font/Smartisan_Compact-Heavy.ttf') format('truetype');
+  src: url('https://cdn.junxio.cc/static/font/Smartisan_Compact-Heavy.ttf') format('truetype');
 }
 
 @font-face {
   font-family: ST H;
   font-weight: lighter;
-  src: url('https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/font/Smartisan_Compact-Light.ttf') format('truetype');
+  src: url('https://cdn.junxio.cc/static/font/Smartisan_Compact-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: ST H;
   font-weight: normal;
-  src: url('https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static/font/Smartisan_Compact-Regular.ttf') format('truetype');
+  src: url('https://cdn.junxio.cc/static/font/Smartisan_Compact-Regular.ttf') format('truetype');
 }
