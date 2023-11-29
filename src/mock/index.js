@@ -3,7 +3,7 @@ const cdnDomain = 'https://junxio-static.oss-cn-shenzhen.aliyuncs.com/static'
 export const pageData = {
   Home: {
     avatarUrl: process.env.VUE_APP_URL_ALI_OSS + '/assets/code200.png',
-    myName: 'JunXiong.Zhong',
+    myName: 'JunXioZho',
     greeting: 'Hi，good to see you.',
   },
   Introduce: {
