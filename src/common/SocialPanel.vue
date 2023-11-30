@@ -3,8 +3,12 @@
     <div class="nav-bar"></div>
     <div class="social-wrapper">
       <div class="switch-btn">
-        <button class="switch-btn-left">&#xe600;</button>
-        <button class="switch-btn-right">&#xe600;</button>
+        <button class="switch-btn-left">
+          <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M671.968 912c-12.288 0-24.576-4.672-33.952-14.048L286.048 545.984c-18.752-18.72-18.752-49.12 0-67.872l351.968-352c18.752-18.752 49.12-18.752 67.872 0 18.752 18.72 18.752 49.12 0 67.872L387.872 512.032l318.016 318.016c18.752 18.752 18.752 49.12 0 67.872-9.344 9.408-21.632 14.08-33.92 14.08z" fill="#fff"/></svg>
+        </button>
+        <button class="switch-btn-right">
+          <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M671.968 912c-12.288 0-24.576-4.672-33.952-14.048L286.048 545.984c-18.752-18.72-18.752-49.12 0-67.872l351.968-352c18.752-18.752 49.12-18.752 67.872 0 18.752 18.72 18.752 49.12 0 67.872L387.872 512.032l318.016 318.016c18.752 18.752 18.752 49.12 0 67.872-9.344 9.408-21.632 14.08-33.92 14.08z" fill="#fff"/></svg>
+        </button>
       </div>
       <div class="icons-menu">
         <SocialLogo name="Blog" :colors="['#d6d6d6', '#fa6d72']" @mouseenter.native="handleMosEnter" />
@@ -175,25 +179,24 @@ export default {
       }
     }
     .switch-btn {
-      align-self: center;
       width: 120%;
-      height: 14px;
+      align-self: center;
       position: absolute;
       z-index: -1;
       display: flex;
       justify-content: space-between;
       animation: switchRun 1s ease infinite;
+
       .switch-btn-left {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
         background: transparent;
-        font-family: 'iconfont';
         color: #fff;
         cursor: pointer;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       }
       .switch-btn-right {
+        transform: rotate(180deg);
         background: transparent;
-        font-family: 'iconfont';
         color: #fff;
         cursor: pointer;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -350,7 +353,6 @@ export default {
     }
 
     .to-right {
-      font-family: 'iconfont';
       background: transparent;
       color: #fff;
       transform: rotate(180deg);
