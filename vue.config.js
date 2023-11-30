@@ -14,6 +14,7 @@ module.exports = {
   chainWebpack: (config) => {
     // config.plugins.delete('prefetch')
     // config.plugins.delete('preload')
+    config.plugins.delete('pwa')
 
     config.resolve.alias
       .set('@$', resolve('src'))
@@ -22,7 +23,7 @@ module.exports = {
 
     config.module
       .rule('image')
-      .test(/\.ico$/)
+      .test(/favicon\.svg$/)
       .use('url-loader')
       .loader('url-loader')
 
@@ -61,13 +62,13 @@ module.exports = {
     },
   },
 
-  pwa: {
-    iconPaths: {
-      favicon32: 'favicon.ico',
-      favicon16: 'favicon.ico',
-      appleTouchIcon: 'favicon.ico',
-      maskIcon: 'favicon.ico',
-      msTileImage: 'favicon.ico',
-    },
-  },
+  // pwa: {
+  //   iconPaths: {
+  //     favicon32: 'favicon.svg',
+  //     favicon16: 'favicon.svg',
+  //     appleTouchIcon: 'favicon.svg',
+  //     maskIcon: 'favicon.svg',
+  //     msTileImage: 'favicon.svg',
+  //   },
+  // }
 }
