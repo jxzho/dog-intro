@@ -11,10 +11,11 @@
         </button>
       </div>
       <div class="icons-menu">
-        <SocialLogo name="Blog" :colors="['#d6d6d6', '#fa6d72']" @mouseenter.native="handleMosEnter" />
-        <SocialLogo name="Zhihu" :colors="['#d6d6d6', '#4f8dee']" @mouseenter.native="handleMosEnter" />
-        <SocialLogo name="Github" :colors="['#d6d6d6', '#8fbc94']" @mouseenter.native="handleMosEnter" />
-        <SocialLogo name="Weibo" :colors="['#d6d6d6', '#fdd692']" @mouseenter.native="handleMosEnter" />
+        <SocialLogo name="Blog" :colors="['#d6d6d6', '#e3b888']" @mouseenter.native="handleMosEnter" />
+        <SocialLogo name="Github" :colors="['#d6d6d6', '#333']" @mouseenter.native="handleMosEnter" />
+        <SocialLogo name="Zhihu" :colors="['#d6d6d6', '#1672F6']" @mouseenter.native="handleMosEnter" />
+        <!-- <SocialLogo name="Weibo" :colors="['#d6d6d6', '#fdd692']" @mouseenter.native="handleMosEnter" /> -->
+        <SocialLogo name="Twitter" :colors="['#d6d6d6', '#03A9F4']" @mouseenter.native="handleMosEnter" />
 
         <!-- 兼容旧写法 -->
         <!-- <div class="icon-wrapper" @mouseenter="handleMosEnter">
