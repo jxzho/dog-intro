@@ -5,11 +5,11 @@ const cdnDirAssets = cdnDomain + '/static'
 export const pageData = {
   Home: {
     avatarUrl: cdnDomain + '/assets/code200.png',
-    myName: 'JunXioZho',
+    myName: '钟俊雄',
     greeting: 'Hi，good to see you.',
   },
   Introduce: {
-    pageTitle: 'About',
+    pageTitle: '关于我',
     brief: '热爱前端，熟悉`JavaScript`、`Vue`、`React`、`TypeScript`等',
     birth: {
       iconUrl: `${cdnDirAssets}/info/cake.svg`,
@@ -17,11 +17,11 @@ export const pageData = {
     },
     university: {
       iconUrl: `${cdnDirAssets}/info/university.svg`,
-      text: 'DGUT',
+      text: '东莞理工',
     },
     home: {
       iconUrl: `${cdnDirAssets}/info/pin.svg`,
-      text: 'ShenZhen',
+      text: '深圳',
     },
     mail: {
       iconUrl: `${cdnDirAssets}/info/mail.svg`,

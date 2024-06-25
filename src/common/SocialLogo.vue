@@ -24,7 +24,7 @@ export default {
   render() {
     const IconSvg = {
       Blog: {
-        link: 'https://blog-rss.vercel.app', // 'https://www.jianshu.com/u/8c0f62fa164f',
+        link: 'https://blog.junxio.cc', // 'https://www.jianshu.com/u/8c0f62fa164f',
         content: (
           <svg
             aria-hidden="true"

@@ -96,7 +96,8 @@ export default {
 
   .name {
     margin: 40px 0;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: bold;
     color: rgba(0, 0, 0, 0.7);
   }
 
